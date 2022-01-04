@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import Card from './components/Card.js';
+import IconText from './components/IconText.js';
+import {currAge,yearsExp} from './utility/age_calculator.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <body>
+      <h1>About me</h1>
+      <Card imageBackground>
+        <div className="about-container">
+         <IconText asset='location'>Bogotá, Colombia  </IconText> 
+          <IconText asset='timezone'>GMT-5</IconText>
+          <IconText asset='language'>English/Spanish</IconText>
+        </div>
+
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          I am a {currAge()} years old Systems and Computing engineer with {yearsExp()} of experience.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      </Card>
+
+      <h1>Changuita</h1>
+      <Card contentBackground>
+        
+      </Card>
+    </body>
+  )
 }
 
 export default App;
