@@ -1,9 +1,16 @@
+import styled from "styled-components";
+import { Row } from "../styled_foundations/layout";
 import Icon from "./Icon";
 
+
+const StyledText = styled.span`
+    margin-left: 1rem;
+`
 export default function IconText(props) {
 
-    return <div class='d-flex'>
-        <Icon asset={props.asset}></Icon> 
-        <span>{props.children}</span>
-    </div>
+    return <Row>
+            <Icon asset={props.asset}></Icon> 
+            <StyledText>{props.children}</StyledText>
+    </Row>
+        
 }

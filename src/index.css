@@ -12,20 +12,9 @@ code {
     monospace;
 }
 
-body{
-  background-color: #E5E5E5;
-  padding-left: 50px;
-  padding-right: 50px;
-}
-h1{
-  font-size: 48;
-  color: #412234;
-}
 
-.d-flex{
-  display: flex;
-  align-content: center;
-}
+
+
 
 .card{
   display:flex;

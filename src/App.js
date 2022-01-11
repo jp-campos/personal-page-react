@@ -1,28 +1,32 @@
-import Card from './components/Card.js';
-import IconText from './components/IconText.js';
-import {currAge,yearsExp} from './utility/age_calculator.js';
+import styled from 'styled-components';
+import Hero from './components/Hero.js';
+import AboutMe from './sections/AboutMe.js';
+import Skills from './sections/Skills.js';
 
+
+const Body = styled.div`
+  background-color: #E5E5E5;
+  padding-left: 50px;
+  padding-right: 50px;
+`
+
+let HeroWhiteSpace = styled.div`
+    height: 1000px; //TODO: Hacerlo con base a la altura
+    background-color: #E5E5E5;
+`
 function App() {
   return (
-    <body>
-      <h1>About me</h1>
-      <Card imageBackground>
-        <div className="about-container">
-         <IconText asset='location'>Bogotá, Colombia  </IconText> 
-          <IconText asset='timezone'>GMT-5</IconText>
-          <IconText asset='language'>English/Spanish</IconText>
-        </div>
-
-        <p>
-          I am a {currAge()} years old Systems and Computing engineer with {yearsExp()} of experience.
-        </p>
-      </Card>
-
-      <h1>Changuita</h1>
-      <Card contentBackground>
+    <>
+      <Hero></Hero>
+      <Body>
+        <HeroWhiteSpace></HeroWhiteSpace>
         
-      </Card>
-    </body>
+        <AboutMe/>
+       <Skills/>
+
+      </Body>
+    </>
+
   )
 }
 
