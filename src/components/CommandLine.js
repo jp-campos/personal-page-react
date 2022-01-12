@@ -1,21 +1,40 @@
-import { useEffect, useLayoutEffect, createRef } from "react"
+import { useEffect, useLayoutEffect, createRef, useState} from "react"
+import {keyframes} from "styled-components"
 import styled from "styled-components"
-import { Column, ColumnCenter, Row, RowCenter } from "../styled_foundations/layout"
+import { ColumnCenter, Row, RowCenter } from "../styled_foundations/layout"
 import Icon from "./Icon"
 import IconText from "./IconText"
+import { css } from "styled-components"
+import useWindowDimensions from "../hooks/use_window_dimensions"
 
+
+const marginTop = '50'; 
+
+const minimizeAnimation = keyframes`
+ 0% { height: 100px; width: 300px; left: 5%; bottom: 80%}
+ 50% { height: 100px; width: 300px;  left: 80%; bottom: 60%}
+ 100%  { height: 100px; width: 300px; left: 80%; bottom:0}
+ `
 
 const Container = styled.div.attrs(props => ({
     style:{
-        height: `calc(80% - ${props.height}px)`
-    }
+        height: props.active ? '100px':  `calc(80vh - ${props.height}px)`,
+        transform: props.active&&  `translatey(calc(100vh)) translatex(70vw)` ,
+        visibility: props.active&& 'hidden',
+        width: props.active&& '0px'
+        
+    },
+    
     }))`
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: 50px;
+        top: ${marginTop}px;
         left: 10%;
         width:80%;
+        z-index: 200;
+        overflow: hidden;
+        transition: transform 500ms 0s , visibility 0s 500ms , width 500ms 0s ;
         `
 
 let Body = styled(RowCenter)`
@@ -29,8 +48,7 @@ let Body = styled(RowCenter)`
 let Header = styled(RowCenter)`                    
         background-color: #C4C4C4;
         height: 30px;
-        border-radius: 5px 5px 0px 0px;
-    
+        border-radius: 5px 5px 0px 0px;  
     `
 
 let CircleContainer = styled(Row)`
@@ -70,19 +88,29 @@ let FolderContainer = styled(Row)`
 
 export default function CommandLine(props) {
     
+
     const bodyRef = createRef()
+    const size = useWindowDimensions()
+    
+    const [animationActive, setAnimationActive] = useState(false)
+    const [scrollAnimationPos, setScrollAnimationPos] = useState(0)
+    
     useEffect(()=>{
     },[props.scrollPosition])
 
     useLayoutEffect(()=>{
-        if (bodyRef.current.clientWidth < bodyRef.current.scrollWidth) {
-            console.log('overflow')
+        if (bodyRef.current.clientHeight < bodyRef.current.scrollHeight) {
+            setAnimationActive(true);
+            setScrollAnimationPos(props.scrollPosition)
+          }else if(animationActive && props.scrollPosition < scrollAnimationPos  ){
+           
+            console.log('devolver animación')
           }
-    })
+    }, [bodyRef, animationActive, props.scrollPosition])
 
  
    
-    return <Container height={props.scrollPosition}>
+    return <Container height={props.scrollPosition} active= {animationActive}>
         <Header>
             <CircleContainer>
                 <RedCircle></RedCircle>
@@ -91,7 +119,7 @@ export default function CommandLine(props) {
             </CircleContainer>
             <IconText asset='folder'>User ─ zhs ─ 80 x 24</IconText>
         </Header>
-        <Body ref={bodyRef}>
+        <Body ref={bodyRef} >
             <ColumnCenter>
                 <p>Juan Pablo Campos</p>
                 <p>&gt; Software engineer</p>

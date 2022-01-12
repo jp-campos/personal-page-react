@@ -11,7 +11,7 @@ const Body = styled.div`
 `
 
 let HeroWhiteSpace = styled.div`
-    height: 1000px; //TODO: Hacerlo con base a la altura
+    height: 100vh; //TODO: Hacerlo con base a la altura
     background-color: #E5E5E5;
 `
 function App() {

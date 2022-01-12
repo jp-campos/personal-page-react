@@ -11,7 +11,6 @@ export default function currAge(){
 
 function yearsExp(){
     let years = new Date(Date.now()).getFullYear() - 2020
-    console.log(years)
     let yearText = years > 1 ? 'years' : 'year'
     return `${years} ${yearText}`
 }
