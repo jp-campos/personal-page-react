@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import CommandLine from './CommandLine'
+import CommandLine from './command_line/CommandLine'
 import NavBar from './NavBar'
 
 
