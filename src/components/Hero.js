@@ -5,7 +5,7 @@ import NavBar from './NavBar'
 
 
 
-export default function Hero(){
+export default function Hero({aboutMeRef}){
 
     const [scrollPosition, setScrollPosition] = useState(0)
 
@@ -20,6 +20,6 @@ export default function Hero(){
     
     return <>
         <NavBar scrollPosition={scrollPosition}></NavBar>
-        <CommandLine scrollPosition={scrollPosition}></CommandLine>
+        <CommandLine aboutMeRef={aboutMeRef} scrollPosition={scrollPosition}></CommandLine>
     </>
 }

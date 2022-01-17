@@ -15,6 +15,7 @@ const StyledNavBar = styled.div.attrs(props => ({
         top: 0px;
         width: 100%;
         min-height: 60px; 
+        z-index: 50;
 `
 export default function NavBar({scrollPosition}){
  

@@ -23,7 +23,7 @@ export const  Container = styled.div.attrs(props => ({
         width:80%;
         z-index: 200;
         overflow: hidden;
-        transition: transform 500ms 0s , visibility 0s 500ms , width 500ms 0s ;
+        transition: transform 300ms 0s , visibility 0s 300ms , width 300ms 0s ;
         `
 
 export const Body = styled(RowCenter)`
@@ -58,6 +58,7 @@ margin: 0px 2px;
 export const YellowCircle = styled(Circle)`
         border-color: #DE9F34;
         background-color: #FDBC40;
+        cursor: pointer;
     `
 
 export const GreenCircle = styled(Circle)`

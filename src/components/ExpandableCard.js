@@ -15,6 +15,11 @@ const SeeMore = styled(Row)`
 `
     
 
+const Title = styled(H3)`
+ transition: color 0.3s ease;
+
+`
+
 const StyledCard = styled.div`
     background-color: ${colors.cardBackground};
     min-height: 230px;
@@ -23,17 +28,19 @@ const StyledCard = styled.div`
     max-width: 100%;
     padding: 15px;
     position: relative;
+    cursor: pointer; 
 
     &:hover ${SeeMore}{
         opacity: 1; 
+    }
+
+    &:hover ${Title}{
+        color: ${colors.active};
     }
 `
 
  
 
-const Title = styled(H3)`
-
-`
 
 const IconContainer = styled(RowSpaceAround)`
     margin-top: 40px; 

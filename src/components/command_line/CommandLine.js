@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, createRef, useState } from "react"
-import { ColumnCenter, Row, RowCenter } from "../../styled_foundations/layout"
+import { ColumnCenter } from "../../styled_foundations/layout"
 import IconText from "../IconText"
 import {AnimationState } from "./constants"
 import {Body,CircleContainer,Container,GreenCircle,Header,RedCircle,YellowCircle} from "./styles"; 
@@ -17,30 +17,36 @@ export default function CommandLine(props) {
             setAnimationState(AnimationState.Reverse);
             setTimeout(() => { setAnimationState(AnimationState.Initial) }, 500)
         }
-    }, [props.scrollPosition, animationState])
+    }, [props.scrollPosition, animationState,scrollAnimationPos])
 
     useLayoutEffect(() => {
         if (bodyRef.current.clientHeight < bodyRef.current.scrollHeight && animationState === AnimationState.Initial) {
             setAnimationState(AnimationState.Forward)
             setScrollAnimationPos(props.scrollPosition)
+            executeScroll()
         }
-    }, [bodyRef, animationState, props.scrollPosition])
+    }, [bodyRef, animationState, props.scrollPosition, executeScroll])
 
+
+    function executeScroll(){
+        
+        props.aboutMeRef.current.scrollIntoView()    
+    }
 
 
     return <Container height={props.scrollPosition} state={animationState}>
         <Header>
             <CircleContainer>
                 <RedCircle></RedCircle>
-                <YellowCircle></YellowCircle>
+                <YellowCircle onClick={executeScroll}></YellowCircle>
                 <GreenCircle></GreenCircle>
             </CircleContainer>
             <IconText asset='folder'>User ─ zhs ─ 80 x 24</IconText>
         </Header>
         <Body ref={bodyRef} >
             <ColumnCenter>
-                <p>Juan Pablo Campos</p>
-                <p>&gt; Software engineer</p>
+                <h1>Juan Pablo Campos</h1>
+                <h1>&gt; Software engineer</h1>
             </ColumnCenter>
 
         </Body>

@@ -2,27 +2,31 @@ import styled from 'styled-components';
 import Hero from './components/Hero.js';
 import AboutMe from './sections/AboutMe.js';
 import Skills from './sections/Skills.js';
-
+import {useRef} from 'react'
+import Experience from './sections/Experience.js';
 
 const Body = styled.div`
-  background-color: #E5E5E5;
+  
   padding-left: 50px;
   padding-right: 50px;
 `
 
-let HeroWhiteSpace = styled.div`
-    height: 100vh; //TODO: Hacerlo con base a la altura
-    background-color: #E5E5E5;
+const HeroWhiteSpace = styled.div`
+    height: 100vh;
 `
+
+
 function App() {
+  const aboutMeRef = useRef()
   return (
     <>
-      <Hero></Hero>
+      <Hero aboutMeRef={aboutMeRef}></Hero>
       <Body>
-        <HeroWhiteSpace></HeroWhiteSpace>
+        <HeroWhiteSpace/>
         
-        <AboutMe/>
+        <AboutMe innerRef ={aboutMeRef}/>
        <Skills/>
+       <Experience/>
 
       </Body>
     </>

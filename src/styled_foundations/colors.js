@@ -1,8 +1,8 @@
 const colors = {
 
     lightGrey: '#ACACA',
-    cardBackground: '#ffffff'
-
+    cardBackground: '#ffffff',
+    active: '#FA512D'
 
 }
 
