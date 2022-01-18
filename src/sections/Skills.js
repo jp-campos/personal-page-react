@@ -13,7 +13,7 @@ const FlexContainer = styled(RowCenter)`
 export default function Skills() {
 
 
-    return <StyledSection>
+    return <StyledSection id="skills">
     <H1>Skills</H1>
         <FlexContainer>
             <ExpandableCard assets={['folder', 'location', 'language']}>Front-End</ExpandableCard>

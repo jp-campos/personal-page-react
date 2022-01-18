@@ -16,10 +16,8 @@ const IconsContainer = styled(RowSpaceAround)`
 
 export default function AboutMe({innerRef }) {
 
-
-
     return <>
-        <H1 ref={innerRef}>About me</H1>
+        <H1 id="about-me" ref={innerRef}>About me</H1>
         <Card imageBackground>
             <IconsContainer>
                 <IconText asset='location'>Bogotá, Colombia  </IconText>

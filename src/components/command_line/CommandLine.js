@@ -1,40 +1,41 @@
-import { useEffect, useLayoutEffect, createRef, useState } from "react"
+import { useEffect, useLayoutEffect, useState, useRef } from "react"
 import { ColumnCenter } from "../../styled_foundations/layout"
 import IconText from "../IconText"
 import {AnimationState } from "./constants"
 import {Body,CircleContainer,Container,GreenCircle,Header,RedCircle,YellowCircle} from "./styles"; 
 
-export default function CommandLine(props) {
+export default function CommandLine({scrollPosition,minimizedCallback,aboutMeRef }) {
 
 
-    const bodyRef = createRef()
+    const bodyRef = useRef()
 
     const [scrollAnimationPos, setScrollAnimationPos] = useState(0)
     const [animationState, setAnimationState] = useState(AnimationState.Initial)
 
     useEffect(() => {
-        if (props.scrollPosition < scrollAnimationPos && animationState === AnimationState.Forward) {
+        if (scrollPosition < scrollAnimationPos && animationState === AnimationState.Forward) {
             setAnimationState(AnimationState.Reverse);
-            setTimeout(() => { setAnimationState(AnimationState.Initial) }, 500)
+            minimizedCallback(false)
+            setTimeout(() => { setAnimationState(AnimationState.Initial) }, 200)
         }
-    }, [props.scrollPosition, animationState,scrollAnimationPos])
+    }, [scrollPosition, animationState,scrollAnimationPos])
 
     useLayoutEffect(() => {
         if (bodyRef.current.clientHeight < bodyRef.current.scrollHeight && animationState === AnimationState.Initial) {
             setAnimationState(AnimationState.Forward)
-            setScrollAnimationPos(props.scrollPosition)
+            setScrollAnimationPos(scrollPosition)
+            minimizedCallback(true)
             executeScroll()
         }
-    }, [bodyRef, animationState, props.scrollPosition, executeScroll])
+    }, [bodyRef, animationState, scrollPosition, executeScroll])
 
 
     function executeScroll(){
-        
-        props.aboutMeRef.current.scrollIntoView()    
+        aboutMeRef.current.scrollIntoView()    
     }
 
 
-    return <Container height={props.scrollPosition} state={animationState}>
+    return <Container height={scrollPosition} state={animationState}>
         <Header>
             <CircleContainer>
                 <RedCircle></RedCircle>
