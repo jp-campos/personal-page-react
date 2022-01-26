@@ -13,11 +13,17 @@ const IconsContainer = styled(RowSpaceAround)`
 
 `
 
+const SeparatorDiv = styled.div`
+    height: 1.34rem;
+`
 
-export default function AboutMe({innerRef }) {
+
+export default function AboutMe({innerRef}) {
 
     return <>
-        <H1 id="about-me" ref={innerRef}>About me</H1>
+    <SeparatorDiv id="about-me" ref={innerRef}/>
+    <StyledSection>
+        <H1>About me</H1>
         <Card imageBackground>
             <IconsContainer>
                 <IconText asset='location'>Bogotá, Colombia  </IconText>
@@ -29,5 +35,6 @@ export default function AboutMe({innerRef }) {
                 I am a {currAge()} years old Systems and Computing engineer with {yearsExp()} of experience.
             </p>
         </Card>
+    </StyledSection>
     </>
 }

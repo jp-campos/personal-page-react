@@ -4,32 +4,38 @@ import AboutMe from './sections/AboutMe.js';
 import Skills from './sections/Skills.js';
 import {useRef} from 'react'
 import Experience from './sections/Experience.js';
+import Navigator from './components/Navigator.js';
+import { NAV_ITEM_LABELS } from './components/nav_bar/constants.js';
 
 const Body = styled.div`
   
-  padding-left: 50px;
+  padding-left: 50px; 
   padding-right: 50px;
 `
-
+//TODO: Hacer media query
 const HeroWhiteSpace = styled.div`
     height: 100vh;
 `
 
 
 function App() {
-  const aboutMeRef = useRef()
+
+
+  
+  const sectionRefs = useRef({})
+
   return (
-    <>
-      <Hero aboutMeRef={aboutMeRef}></Hero>
+    <Navigator sectionRefs={sectionRefs.current} >
+      
       <Body>
         <HeroWhiteSpace/>
         
-        <AboutMe innerRef ={aboutMeRef}/>
-       <Skills/>
-       <Experience/>
+        <AboutMe innerRef = {e => sectionRefs.current[NAV_ITEM_LABELS.aboutMe] = e}/>
+       <Skills innerRef = {e => sectionRefs.current[NAV_ITEM_LABELS.skills] = e}/>
+       <Experience innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.experienceRef] = e}/>
 
       </Body>
-    </>
+    </Navigator>
 
   )
 }

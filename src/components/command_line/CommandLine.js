@@ -31,7 +31,7 @@ export default function CommandLine({scrollPosition,minimizedCallback,aboutMeRef
 
 
     function executeScroll(){
-        aboutMeRef.current.scrollIntoView()    
+        aboutMeRef.scrollIntoView()    
     }
 
 
