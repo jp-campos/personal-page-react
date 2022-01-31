@@ -1,10 +1,9 @@
-import { H1 } from "../styled_foundations/text";
+import Section from "../components/Section";
 
-export default function Experience() {
+export default function Experience({ innerRef }) {
 
 
 
-    return <>
-        <H1>Experience</H1>
-    </>
+    return <Section title="Experience" innerRef={innerRef}>
+    </Section>
 }

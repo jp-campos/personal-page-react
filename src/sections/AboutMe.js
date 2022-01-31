@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Card from "../components/Card";
 import IconText from "../components/IconText";
+import Section from "../components/Section";
 import { RowSpaceAround } from "../styled_foundations/layout";
 import { StyledSection } from "../styled_foundations/spacing";
 import { H1 } from "../styled_foundations/text";
@@ -13,17 +14,13 @@ const IconsContainer = styled(RowSpaceAround)`
 
 `
 
-const SeparatorDiv = styled.div`
-    height: 1.34rem;
-`
+
 
 
 export default function AboutMe({innerRef}) {
 
-    return <>
-    <SeparatorDiv id="about-me" ref={innerRef}/>
-    <StyledSection>
-        <H1>About me</H1>
+    return <Section title='About me' innerRef={innerRef} >
+   
         <Card imageBackground>
             <IconsContainer>
                 <IconText asset='location'>Bogotá, Colombia  </IconText>
@@ -35,6 +32,5 @@ export default function AboutMe({innerRef}) {
                 I am a {currAge()} years old Systems and Computing engineer with {yearsExp()} of experience.
             </p>
         </Card>
-    </StyledSection>
-    </>
+    </Section>
 }

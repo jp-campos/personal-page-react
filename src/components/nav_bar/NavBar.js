@@ -70,7 +70,7 @@ const NavItemSelector = styled.div`
 `
 
 
-export default function NavBar({ scrollPosition, showNavItems, currentNavItem }) {
+export default function NavBar({ scrollPosition, showNavItems, currSection, scrollTo }) {
 
     const refs = useRef({})
 
@@ -80,21 +80,23 @@ export default function NavBar({ scrollPosition, showNavItems, currentNavItem })
    
 
     useLayoutEffect(() => {
-
-        let navItems = itemsContainerRef.current?.querySelectorAll('li')
-        navItems?.forEach(e => {
-            e.addEventListener('click',(event)=>setSelector(event.target) )
-        })
-
-    }, [itemSelectorRef.current])
+        if(typeof currSection !== 'undefined'){
+             setSelector(currSection)
+        }
+       
+    }, [currSection])
 
 
-    function setSelector(e){
-        let navItemSelectorEl = itemSelectorRef.current
-        navItemSelectorEl.style.left = `${e.offsetLeft - 4}px`
-        navItemSelectorEl.style.width = `${e.offsetWidth + 8}px`
+    function setSelector(navItemLabel){
+        if(showNavItems){
+            let navItemSelectorEl = itemSelectorRef.current
+            currRef.current = refs.current[navItemLabel]
 
-        currRef.current = refs.current[e.id]
+            navItemSelectorEl.style.left = `${currRef.current.offsetLeft - 4}px`
+            navItemSelectorEl.style.width = `${currRef.current.offsetWidth + 8}px`
+            scrollTo(navItemLabel)
+        }
+
     }
 
     
@@ -103,11 +105,11 @@ export default function NavBar({ scrollPosition, showNavItems, currentNavItem })
         {showNavItems &&
             <NavItemsContainer ref={itemsContainerRef} >
                 <NavItemSelector ref={itemSelectorRef}/>
-                <NavItem link={'#about-me'} id={NAV_ITEM_LABELS.aboutMe} innerRef={e => refs.current[NAV_ITEM_LABELS.aboutMe] = e}>About me</NavItem>
-                <NavItem link={'#skills'} id={ NAV_ITEM_LABELS.skills} innerRef={e => refs.current[NAV_ITEM_LABELS.skills] = e}>Skills</NavItem>
-                <NavItem link={'#exp'} id={NAV_ITEM_LABELS.exp} innerRef={e => refs.current[NAV_ITEM_LABELS.exp] = e}>Experience</NavItem>
-                <NavItem link={'#cert'} id={NAV_ITEM_LABELS.certs} innerRef={e=> refs.current[NAV_ITEM_LABELS.certs] = e}>Certifications</NavItem>
-                <NavItem link={'#contact-me'} id={NAV_ITEM_LABELS.certs} innerRef={e=> refs.current[NAV_ITEM_LABELS.contactMe] = e}>Contact Me</NavItem>
+                <NavItem  onClick={()=>setSelector(NAV_ITEM_LABELS.aboutMe)}  innerRef={e => refs.current[NAV_ITEM_LABELS.aboutMe] = e}>About me</NavItem>
+                <NavItem onClick={()=>setSelector(NAV_ITEM_LABELS.skills)}  innerRef={e => refs.current[NAV_ITEM_LABELS.skills] = e}>Skills</NavItem>
+                <NavItem onClick={()=>setSelector(NAV_ITEM_LABELS.exp)} innerRef={e => refs.current[NAV_ITEM_LABELS.exp] = e}>Experience</NavItem>
+                <NavItem onClick={()=>setSelector(NAV_ITEM_LABELS.certs)} innerRef={e=> refs.current[NAV_ITEM_LABELS.certs] = e}>Certifications</NavItem>
+                <NavItem onClick={()=>setSelector(NAV_ITEM_LABELS.contactMe)} innerRef={e=> refs.current[NAV_ITEM_LABELS.contactMe] = e}>Contact Me</NavItem>
             </NavItemsContainer>
 
         }

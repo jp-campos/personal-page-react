@@ -6,6 +6,7 @@ import {useRef} from 'react'
 import Experience from './sections/Experience.js';
 import Navigator from './components/Navigator.js';
 import { NAV_ITEM_LABELS } from './components/nav_bar/constants.js';
+import Certs from './sections/Certs.js';
 
 const Body = styled.div`
   
@@ -19,8 +20,6 @@ const HeroWhiteSpace = styled.div`
 
 
 function App() {
-
-
   
   const sectionRefs = useRef({})
 
@@ -33,7 +32,7 @@ function App() {
         <AboutMe innerRef = {e => sectionRefs.current[NAV_ITEM_LABELS.aboutMe] = e}/>
        <Skills innerRef = {e => sectionRefs.current[NAV_ITEM_LABELS.skills] = e}/>
        <Experience innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.experienceRef] = e}/>
-
+        <Certs innerRef={e =>  sectionRefs.current[NAV_ITEM_LABELS.certs] = e}/>
       </Body>
     </Navigator>
 

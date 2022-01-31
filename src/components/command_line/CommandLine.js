@@ -1,10 +1,11 @@
 import { useEffect, useLayoutEffect, useState, useRef } from "react"
 import { ColumnCenter } from "../../styled_foundations/layout"
 import IconText from "../IconText"
+import { NAV_ITEM_LABELS } from "../nav_bar/constants";
 import {AnimationState } from "./constants"
 import {Body,CircleContainer,Container,GreenCircle,Header,RedCircle,YellowCircle} from "./styles"; 
 
-export default function CommandLine({scrollPosition,minimizedCallback,aboutMeRef }) {
+export default function CommandLine({scrollPosition,minimizedCallback,scrollTo }) {
 
 
     const bodyRef = useRef()
@@ -31,7 +32,7 @@ export default function CommandLine({scrollPosition,minimizedCallback,aboutMeRef
 
 
     function executeScroll(){
-        aboutMeRef.scrollIntoView()    
+        scrollTo(NAV_ITEM_LABELS.aboutMe)
     }
 
 

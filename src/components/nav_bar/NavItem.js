@@ -16,16 +16,12 @@ const StyledNavItem = styled.li`
  
 
 `
-const StyledAnchor = styled.a`
-    text-decoration: none;
-    color: inherit; 
-`
 
 
-export default function NavItem({ children, innerRef, id, link }) {
+export default function NavItem({ children, innerRef, id, onClick }) {
 
 
-    return <StyledNavItem id={id} ref={innerRef} isSelected={false}>
-        <StyledAnchor href={link}>{children}</StyledAnchor>
+    return <StyledNavItem onClick={onClick} id={id} ref={innerRef} isSelected={false}>
+       {children}
     </StyledNavItem>
 }
