@@ -31,7 +31,7 @@ function App() {
         
         <AboutMe innerRef = {e => sectionRefs.current[NAV_ITEM_LABELS.aboutMe] = e}/>
        <Skills innerRef = {e => sectionRefs.current[NAV_ITEM_LABELS.skills] = e}/>
-       <Experience innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.experienceRef] = e}/>
+       <Experience innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.exp] = e}/>
         <Certs innerRef={e =>  sectionRefs.current[NAV_ITEM_LABELS.certs] = e}/>
       </Body>
     </Navigator>

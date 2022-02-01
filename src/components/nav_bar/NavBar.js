@@ -3,7 +3,7 @@ import { Row } from "../../styled_foundations/layout"
 import IconText from "../IconText"
 import colors from "../../styled_foundations/colors"
 import NavItem from "./NavItem"
-import { useRef, useLayoutEffect, useEffect } from "react"
+import { useRef, useLayoutEffect, useEffect, useState } from "react"
 import { NAV_ITEM_LABELS } from "./constants"
 
 const LanguagesContainer = styled(Row)`
@@ -79,12 +79,14 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
     const currRef = useRef()
    
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if(typeof currSection !== 'undefined'){
-             setSelector(currSection)
+             setSelector(currSection)      
         }
+        
        
-    }, [currSection])
+    }, [currSection, showNavItems])
+
 
 
     function setSelector(navItemLabel){
@@ -94,9 +96,14 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
 
             navItemSelectorEl.style.left = `${currRef.current.offsetLeft - 4}px`
             navItemSelectorEl.style.width = `${currRef.current.offsetWidth + 8}px`
-            scrollTo(navItemLabel)
         }
 
+    }
+
+   function  onItemClick  (navItemLabel)  {
+        scrollTo(navItemLabel)
+    
+        
     }
 
     
@@ -105,11 +112,11 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
         {showNavItems &&
             <NavItemsContainer ref={itemsContainerRef} >
                 <NavItemSelector ref={itemSelectorRef}/>
-                <NavItem  onClick={()=>setSelector(NAV_ITEM_LABELS.aboutMe)}  innerRef={e => refs.current[NAV_ITEM_LABELS.aboutMe] = e}>About me</NavItem>
-                <NavItem onClick={()=>setSelector(NAV_ITEM_LABELS.skills)}  innerRef={e => refs.current[NAV_ITEM_LABELS.skills] = e}>Skills</NavItem>
-                <NavItem onClick={()=>setSelector(NAV_ITEM_LABELS.exp)} innerRef={e => refs.current[NAV_ITEM_LABELS.exp] = e}>Experience</NavItem>
-                <NavItem onClick={()=>setSelector(NAV_ITEM_LABELS.certs)} innerRef={e=> refs.current[NAV_ITEM_LABELS.certs] = e}>Certifications</NavItem>
-                <NavItem onClick={()=>setSelector(NAV_ITEM_LABELS.contactMe)} innerRef={e=> refs.current[NAV_ITEM_LABELS.contactMe] = e}>Contact Me</NavItem>
+                <NavItem  onClick={()=>onItemClick(NAV_ITEM_LABELS.aboutMe)}  innerRef={e => refs.current[NAV_ITEM_LABELS.aboutMe] = e}>About me</NavItem>
+                <NavItem onClick={()=>onItemClick(NAV_ITEM_LABELS.skills)}  innerRef={e => refs.current[NAV_ITEM_LABELS.skills] = e}>Skills</NavItem>
+                <NavItem onClick={()=>onItemClick(NAV_ITEM_LABELS.exp)} innerRef={e => refs.current[NAV_ITEM_LABELS.exp] = e}>Experience</NavItem>
+                <NavItem onClick={()=>onItemClick(NAV_ITEM_LABELS.certs)} innerRef={e=> refs.current[NAV_ITEM_LABELS.certs] = e}>Certifications</NavItem>
+                <NavItem onClick={()=>onItemClick(NAV_ITEM_LABELS.contactMe)} innerRef={e=> refs.current[NAV_ITEM_LABELS.contactMe] = e}>Contact Me</NavItem>
             </NavItemsContainer>
 
         }

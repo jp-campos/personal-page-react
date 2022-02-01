@@ -7,7 +7,7 @@ export default function Navigator({ sectionRefs, children }) {
 
 
     const [scrollPosition, setScrollPosition] = useState(0)
-    const currSection = useRef()
+    const [currSection, setCurrSection] = useState()
 
     useEffect(() => {
         window.addEventListener('scroll', _handleScroll, { passive: true })
@@ -16,7 +16,7 @@ export default function Navigator({ sectionRefs, children }) {
 
     const _handleScroll = (_) => {
         setScrollPosition(window.scrollY)
-        currSection.current = _getCurrSectionKey()
+        setCurrSection( _getCurrSectionKey()) 
     }
 
     const _getCurrSectionKey = () => {
@@ -36,13 +36,14 @@ export default function Navigator({ sectionRefs, children }) {
         return minKey
     }
 
-    const scrollTo = (section) => {
+    const scrollTo = async (section) => {
+        
         sectionRefs[section]?.scrollIntoView()
     }
 
 
     return <>
-        <Hero currSection={currSection.current} scrollPosition={scrollPosition} scrollTo={scrollTo}></Hero>
+        <Hero currSection={currSection} scrollPosition={scrollPosition} scrollTo={scrollTo}></Hero>
         {children}
     </>
 }
