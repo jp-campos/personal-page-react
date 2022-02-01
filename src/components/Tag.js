@@ -6,6 +6,7 @@ const StyledTag = styled.div`
     border-radius: 8px;
     padding: 2px 5px;
     display: inline-flex;
+    margin-right: 10px;
 `
 
 export default function Tag(props){

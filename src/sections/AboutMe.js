@@ -29,7 +29,9 @@ export default function AboutMe({innerRef}) {
             </IconsContainer>
 
             <p>
-                I am a {currAge()} years old Systems and Computing engineer with {yearsExp()} of experience.
+                I am a {currAge()} years old Systems and Computing engineer  from the University of the Andes with {yearsExp()} of experience.
+                I am fluent in English and Spanish with strong verbal, written and listening skills to talk to both technichal and functional coworkers. 
+                I enjoy coding to solve challeging problems. Other things I enjoy are going outdoors, climbing, and ultimate frisbee. 
             </p>
         </Card>
     </Section>

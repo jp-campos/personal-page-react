@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 
 const backgroundStyle = {
-    backgroundColor: "#F8F7FF"
-  }
+  backgroundColor: "#F8F7FF"
+}
 
 
 const StyledCard = styled.div`
@@ -13,26 +13,41 @@ const StyledCard = styled.div`
   border-radius: 8px;
   background-color: white;
   width: 100%;
+  margin-bottom: 50px;
+`
+
+
+
+
+const Left = styled.div`
+  width:20%;
+  border-radius: 8px 0px 0px 8px;
+`
+
+
+const Right = styled.div`
+  width:80%;
+  border-radius: 0px 8px 8px 0px;
+  padding: 30px;
 `
 
 function Card(props) {
 
-  let imageStyle = props.imageBackground ? backgroundStyle : {};
-  let contentStyle = props.contentBackground ? backgroundStyle : {};
 
-    return (
-      <StyledCard>
-        
-        <div style={imageStyle} className="card-image"> 
-          Imagen
-        </div>
 
-        <div style={contentStyle} className="card-content">
-          {props.children}
-        </div>
-      </StyledCard>
-    );
-  }
+  return (
+    <StyledCard>
+
+      <Left>
+        {props.left}
+      </Left>
+
+      <Right>
+        {props.children}
+      </Right>
+    </StyledCard>
+  );
+}
 
 
 export default Card;

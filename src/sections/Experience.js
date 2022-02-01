@@ -10,6 +10,11 @@ const DateText = styled.span`
     color: #6F6F6F;
 `
 
+const TextJustify = styled.span`
+ text-align: justify;
+  text-justify: inter-word;
+`
+
 export default function Experience({ innerRef }) {
 
 
@@ -21,10 +26,51 @@ export default function Experience({ innerRef }) {
         <Card>
             <H3>Inspector’s general officer  digital transformation</H3>
             <Tag color={colors.backEndTagBg}>Back-End</Tag>
+
+            <TextJustify>
+                 <p> Leveraged analytics and data science to give a digiital transformation to government processes</p>
+            </TextJustify>
+
+            <H4> Technologies used</H4>
             <ul>
-                <li>Development of ETLS </li>
-                <li>Hola</li>
-                <li>Hola</li>
+                <li>Datafactory ETLS </li>
+                <li>Apache Spark</li>
+                <li>Microsoft SQL server</li>
+            </ul>
+        </Card>
+
+
+        <H2>Fullstack developer</H2>
+        <DateText>04/21 - Today</DateText>
+        <Card>
+            <H3>Bancolombia a la Mano</H3>
+            <Tag color={colors.frontEndTagBg}>Front-End</Tag>
+            <Tag color={colors.backEndTagBg}>Back-End</Tag>
+            <TextJustify>
+                 <p>I Worked with Colombia's biggest bank on their finantial inclusion product "Bancolombia a la mano". 
+                During this time I also contributed in a digital transformation project called "Galatea". This project's main purposes 
+                was to increase code reusability between finantial products and promote good programming/architectural practices. 
+                </p>
+                <p>
+                    I took tasks on both front end and backend. The front end 
+                </p>
+            </TextJustify>
+
+            <H4> Technologies used</H4>
+            <ul>
+                <li>Micro services developed with Springboot Reactor</li>
+                <li>Rabbit MQ</li>
+
+                <li>AWS cloudformation</li>
+                <li>Kubernetes</li>
+                <li>Azure pipelines</li>
+                <li>Clean Architecture</li>
+
+
+                <li>Hybrid app with Flutter</li>
+                <li>Atomic Design</li>
+                
+
             </ul>
         </Card>
     </Section>

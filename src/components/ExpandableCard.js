@@ -3,6 +3,7 @@ import colors from "../styled_foundations/colors"
 import { Row, RowSpaceAround, RowSpaceBetween } from "../styled_foundations/layout"
 import { H3 } from "../styled_foundations/text"
 import Icon from "./Icon"
+import IconText from "./IconText"
 
 
 
@@ -46,6 +47,10 @@ const IconContainer = styled(RowSpaceAround)`
     margin-top: 40px; 
 
 ` 
+
+const StyledSpan = styled.span`
+    margin-right: 5px;
+`
     
 
 export default function ExpandableCard(props){
@@ -54,12 +59,14 @@ export default function ExpandableCard(props){
     return <StyledCard>
         <Title>{props.children}</Title>
         <IconContainer>
-        {props.assets.map(el => <Icon asset={el}></Icon>)}
+            {props.assets.map(el => <Icon asset={el}></Icon>)}
         </IconContainer>
         <SeeMore>
         
-        <span>Expand</span>
-        <Icon asset='expand'></Icon>
+
+        
+        <StyledSpan>Expand</StyledSpan>
+        <Icon height="15" width="15" asset='expand'></Icon>
         
         </SeeMore>
     </StyledCard>

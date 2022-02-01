@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
 import Hero from "./Hero"
-import { NAV_ITEM_LABELS } from "./nav_bar/constants"
 
 
 export default function Navigator({ sectionRefs, children }) {

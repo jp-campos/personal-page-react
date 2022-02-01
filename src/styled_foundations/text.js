@@ -13,13 +13,13 @@ export const H2 = styled.h2`
 `
 
 export const H3 = styled.h3`
-  color: #090909;
+  color: #0E0C76;
   font-weight: 400;
     margin: 0px;
 `
 export const H4 = styled.h4`
   color: #090909;
-  font-weight: 400;
+  font-weight: 600;
 
 `
 
