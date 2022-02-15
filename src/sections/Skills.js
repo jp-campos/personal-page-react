@@ -14,7 +14,7 @@ export default function Skills({ innerRef }) {
 
     return <Section title="Skills" innerRef={innerRef} >
             <FlexContainer>
-                <ExpandableCard assets={['folder', 'location', 'language']}>Front-End</ExpandableCard>
+                <ExpandableCard assets={['javascript', 'css', 'html', 'flutter', 'react']}>Front-End</ExpandableCard>
                 <ExpandableCard assets={['folder', 'location', 'language']}>Back-End</ExpandableCard>
                 <ExpandableCard assets={['folder', 'location', 'language']}>Mobile</ExpandableCard>
                 <ExpandableCard assets={['folder', 'location', 'language']}>Data</ExpandableCard>

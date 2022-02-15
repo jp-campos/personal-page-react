@@ -1,6 +1,6 @@
-import styled from "styled-components";
-
-
+import styled from "styled-components"
+import { ColumnCenter } from '../styled_foundations/layout'
+import Icon from './Icon'
 const backgroundStyle = {
   backgroundColor: "#F8F7FF"
 }
@@ -31,10 +31,7 @@ const Right = styled.div`
   padding: 30px;
 `
 
-function Card(props) {
-
-
-
+export default function Card(props) {
   return (
     <StyledCard>
 
@@ -49,5 +46,29 @@ function Card(props) {
   );
 }
 
+const IconsContainer = styled(ColumnCenter)`
+  padding: 30px 0px;
 
-export default Card;
+`
+
+const IconSpacing = styled.div`
+  height: 20px;
+`
+
+export function IconsCard(props) {
+
+
+  const left = <IconsContainer>
+
+    {props.assets
+      .map((asset) => <Icon height={100} width={100} asset={asset} />)
+      .flatMap((icon) => [icon, <IconSpacing />])
+    }
+  </IconsContainer>
+
+  return <Card left={left}>
+    {props.children}
+  </Card>
+}
+
+
