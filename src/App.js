@@ -6,7 +6,7 @@ import {useRef} from 'react'
 import Experience from './sections/Experience.js';
 import Navigator from './components/Navigator.js';
 import { NAV_ITEM_LABELS } from './components/nav_bar/constants.js';
-import Certs from './sections/Certs.js';
+import Certifications from './sections/Certifications.js';
 
 const Body = styled.div`
   
@@ -32,7 +32,7 @@ function App() {
         <AboutMe innerRef = {e => sectionRefs.current[NAV_ITEM_LABELS.aboutMe] = e}/>
        <Skills innerRef = {e => sectionRefs.current[NAV_ITEM_LABELS.skills] = e}/>
        <Experience innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.exp] = e}/>
-        <Certs innerRef={e =>  sectionRefs.current[NAV_ITEM_LABELS.certs] = e}/>
+        <Certifications innerRef={e =>  sectionRefs.current[NAV_ITEM_LABELS.certs] = e}/>
       </Body>
     </Navigator>
 

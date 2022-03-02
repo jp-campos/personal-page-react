@@ -31,11 +31,16 @@ export default function Experience({ innerRef }) {
                  <p> Leveraged analytics and data science to give a digiital transformation to government processes</p>
             </TextJustify>
 
-            <H4> Technologies used</H4>
+            <H4> Technologies and methodologies used</H4>
             <ul>
                 <li>Datafactory ETLS </li>
                 <li>Apache Spark</li>
                 <li>Microsoft SQL server</li>
+                <li>PowerBi</li>
+                <li>PowerApps</li>
+                <li>Orable DB</li>
+                <li>Graph algorithms</li>
+                <li>K means</li>
             </ul>
         </IconsCard>
 
@@ -52,19 +57,22 @@ export default function Experience({ innerRef }) {
                 was to increase code reusability between finantial products and promote good programming/architectural practices. 
                 </p>
                 <p>
-                    I took tasks on both front end and backend. The front end was developed in flutter and the backend in reactive Springboot. 
+                    I took tasks on both front end and backend. The front end was developed in Flutter and the backend in reactive Springboot. 
                 </p>
             </TextJustify>
 
-            <H4> Technologies used</H4>
+            <H4> Technologies used and methodologies used</H4>
             <ul>
                 <li>Micro services developed with Springboot Reactor</li>
                 <li>Rabbit MQ</li>
-                <li>AWS cloudformation</li>
+                <li>AWS Cloudformation</li>
+                <li>AWS Secret Manager</li>
+                <li>EKS</li>
                 <li>Kubernetes</li>
                 <li>Azure pipelines</li>
                 <li>Clean Architecture</li>
                 <li>Hybrid app with Flutter</li>
+                <li>Native Flutter plugins for IOS and Android</li>
                 <li>Atomic Design</li>
             </ul>
         </IconsCard>
