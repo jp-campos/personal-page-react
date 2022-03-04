@@ -27,3 +27,7 @@ export const ColumnCenter = styled(Column)`
       justify-content: center;
     align-items: center;
 `
+export const ColumnSpaceBetween = styled(Column)`
+      justify-content: space-between;
+    align-items: center;
+`

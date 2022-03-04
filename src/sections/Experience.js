@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import Card, { IconsCard } from "../components/Card";
+import DropDown from "../components/Dropdown";
 import Section from "../components/Section";
 import Tag from "../components/Tag";
 import colors from "../styled_foundations/colors";
+import { Row } from "../styled_foundations/layout";
 import { H2, H3, H4 } from "../styled_foundations/text";
 
 
@@ -33,6 +35,7 @@ export default function Experience({ innerRef }) {
 
             <H4> Technologies and methodologies used</H4>
             <ul>
+
                 <li>Datafactory ETLS </li>
                 <li>Apache Spark</li>
                 <li>Microsoft SQL server</li>
@@ -41,7 +44,9 @@ export default function Experience({ innerRef }) {
                 <li>Orable DB</li>
                 <li>Graph algorithms</li>
                 <li>K means</li>
+
             </ul>
+
         </IconsCard>
 
 
@@ -57,24 +62,30 @@ export default function Experience({ innerRef }) {
                 was to increase code reusability between finantial products and promote good programming/architectural practices. 
                 </p>
                 <p>
-                    I took tasks on both front end and backend. The front end was developed in Flutter and the backend in reactive Springboot. 
+                    I tackled tasks on both front end and backend. The front end was developed in Flutter and the backend in reactive Springboot. 
                 </p>
             </TextJustify>
+            <DropDown>
+                
 
-            <H4> Technologies used and methodologies used</H4>
-            <ul>
-                <li>Micro services developed with Springboot Reactor</li>
+                <li>Springboot Reactor Micro services </li>
                 <li>Rabbit MQ</li>
                 <li>AWS Cloudformation</li>
                 <li>AWS Secret Manager</li>
-                <li>EKS</li>
+                <li>AWS S3</li>
+                <li>AWS EKS</li>
                 <li>Kubernetes</li>
                 <li>Azure pipelines</li>
                 <li>Clean Architecture</li>
                 <li>Hybrid app with Flutter</li>
                 <li>Native Flutter plugins for IOS and Android</li>
                 <li>Atomic Design</li>
-            </ul>
+
+
+            </DropDown>
+           
         </IconsCard>
     </Section>
 }
+
+
