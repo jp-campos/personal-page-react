@@ -24,11 +24,15 @@ export const H4 = styled.h4`
 `
 export const Link = styled.a`
   text-decoration: none;
-
-
+  font-size: ${props => props.fontSize};
+  color: #B94A32;
+`
+export const Label = styled.span`
+  font-weight: bold;
+  
 `
 
-export const NewPageLink = (props) => <Link href={props.href} target="_blank">{props.children}</Link>
+export const NewPageLink = (props) => <Link href={props.href} fontSize={props.fontSize} target="_blank">{props.children}</Link>
 
     
 

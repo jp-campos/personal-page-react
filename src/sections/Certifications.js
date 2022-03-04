@@ -4,9 +4,9 @@ import IconLink from "../components/IconLink";
 import IconText from "../components/IconText";
 import Section from "../components/Section";
 import colors from "../styled_foundations/colors";
-import { Column, ColumnCenter, ColumnSpaceAround } from "../styled_foundations/layout";
-import { WhiteSpaceSm } from "../styled_foundations/spacing";
-import { H2, H3, NewPageLink } from "../styled_foundations/text";
+import { Column, ColumnCenter, ColumnSpaceAround, Row } from "../styled_foundations/layout";
+import { WhiteSpaceLg, WhiteSpaceMd, WhiteSpaceSm, WhiteSpaceXs } from "../styled_foundations/spacing";
+import { H2, H3, Label, NewPageLink } from "../styled_foundations/text";
 
 
 
@@ -19,40 +19,106 @@ const links = {
     awsSecurity: "https://www.coursera.org/account/accomplishments/certificate/KCGHWT2ASHDT"
 }
 
-const Li = styled.li`
-    margin: 20px 0px;
-   
-`
 
 const CertLink = styled(NewPageLink)`
     margin: 50px 50px;
 `
 
-const Certifications = ({innerRef}) => {
+const Certifications = ({ innerRef }) => {
 
 
     return <Section title="Certifications and Courses" innerRef={innerRef}>
+        
+        <H2>Go courses</H2>
+        <WhiteSpaceSm/>
         <IconsCard assets={['go', 'coursera']}>
-            <H2>Go courses</H2>
-            <WhiteSpaceSm/>
+            
 
-            <h4><NewPageLink href={links.goStarted}>Getting started with go</NewPageLink></h4>
-            <h4><NewPageLink href={links.goFns}>Functions methods and interfaces in go</NewPageLink></h4>
-            <h4><NewPageLink href={links.goConcurrency}>Concurrency in go</NewPageLink></h4>
+        <Certification
+                size="22px"
+                href={links.goStarted}
+                date="March 25, 2021"
+                issuer="University of California, Irvine">
+                Getting started with go
+            </Certification>
+            <WhiteSpaceSm />
+            <Certification
+                size="22px"
+                href={links.goFns}
+                date="April 15, 2021"
+                issuer="AWS">
+                Functions methods and interfaces in go
+            </Certification>
+            <WhiteSpaceSm />
+            <Certification
+                size="22px"
+                href={links.goConcurrency}
+                date="December 17, 2021"
+                issuer="AWS">
+                Concurrency in go
+            </Certification>
+            <WhiteSpaceSm />
         </IconsCard>
-        <IconsCard assets={['aws_certified_dev', 'cloudguru','coursera']}>
-            
-            <H2>AWS courses and certifications</H2>
-            <WhiteSpaceSm/>
-            <IconLink href={links.awsDevAssociate}>AWS Certified Developer – Associate</IconLink>
-           
-      
-             
-            
 
+        <H2>AWS courses and certifications</H2>
+        <WhiteSpaceSm/>
+        <IconsCard assets={['aws_certified_dev', 'cloudguru', 'coursera']}>
+            
+        
+
+            <Certification
+                size="22px"
+                href={links.awsDevAssociate}
+                date="December 17, 2021"
+                issuer="AWS">
+                AWS Certified Developer – Associate
+            </Certification>
+            <WhiteSpaceSm />
+            <Certification
+                size="22px"
+                href={links.awsSecurity}
+                date="March 15, 2021"
+                issuer="AWS">
+                AWS Fundamentals: Addressing Security Risk
+            </Certification>
+            <WhiteSpaceSm />
+            <Certification
+                size="22px"
+                href={links.awsCloudNative}
+                date="February 3, 2021"
+                issuer="AWS">
+                AWS Fundamentals: Going Cloud-Native
+            </Certification>
         </IconsCard>
     </Section>
 }
+
+
+
+
+const Certification = (props) => {
+
+    const Field = styled(Row)`
+    margin-left: ${props => props.marginLeft};
+    `
+    return <>
+        <IconLink size={props.size} href={props.href}>{props.children}</IconLink>
+        <WhiteSpaceSm />
+
+        <Field marginLeft={props.size}>
+            <Label>Date:</Label>
+            <WhiteSpaceXs />
+            {props.date}
+        </Field>
+        <WhiteSpaceXs />
+        <Field marginLeft={props.size}>
+            <Label>Issuer:</Label>
+            <WhiteSpaceXs />
+            {props.issuer}
+        </Field>
+    </>
+}
+
 
 
 export default Certifications; 
