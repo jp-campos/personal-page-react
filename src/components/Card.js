@@ -1,9 +1,7 @@
 import styled from "styled-components"
 import { ColumnCenter } from '../styled_foundations/layout'
 import Icon from './Icon'
-const backgroundStyle = {
-  backgroundColor: "#F8F7FF"
-}
+
 
 
 const StyledCard = styled.div`

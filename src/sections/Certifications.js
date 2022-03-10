@@ -1,12 +1,10 @@
 import styled from "styled-components";
-import Card, { IconsCard } from "../components/Card";
+import { IconsCard } from "../components/Card";
 import IconLink from "../components/IconLink";
-import IconText from "../components/IconText";
 import Section from "../components/Section";
-import colors from "../styled_foundations/colors";
-import { Column, ColumnCenter, ColumnSpaceAround, Row } from "../styled_foundations/layout";
-import { WhiteSpaceLg, WhiteSpaceMd, WhiteSpaceSm, WhiteSpaceXs } from "../styled_foundations/spacing";
-import { H2, H3, Label, NewPageLink } from "../styled_foundations/text";
+import { Row } from "../styled_foundations/layout";
+import { WhiteSpaceSm, WhiteSpaceXs } from "../styled_foundations/spacing";
+import { H2,  Label, NewPageLink } from "../styled_foundations/text";
 
 
 

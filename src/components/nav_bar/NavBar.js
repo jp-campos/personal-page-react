@@ -3,7 +3,7 @@ import { Row } from "../../styled_foundations/layout"
 import IconText from "../IconText"
 import colors from "../../styled_foundations/colors"
 import NavItem from "./NavItem"
-import { useRef, useLayoutEffect, useEffect, useState } from "react"
+import { useRef, useEffect } from "react"
 import { NAV_ITEM_LABELS } from "./constants"
 
 const LanguagesContainer = styled(Row)`

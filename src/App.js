@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Hero from './components/Hero.js';
 import AboutMe from './sections/AboutMe.js';
 import Skills from './sections/Skills.js';
 import {useRef} from 'react'

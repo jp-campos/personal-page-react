@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import {  Row, RowSpaceBetween } from "../styled_foundations/layout";
+import {  Row } from "../styled_foundations/layout";
 import { WhiteSpaceMd } from "../styled_foundations/spacing";
 import colors from './../styled_foundations/colors'
 

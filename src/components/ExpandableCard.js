@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import colors from "../styled_foundations/colors"
-import { Row, RowSpaceAround, RowSpaceBetween } from "../styled_foundations/layout"
+import { Row, RowSpaceAround } from "../styled_foundations/layout"
 import { H3 } from "../styled_foundations/text"
 import Icon from "./Icon"
-import IconText from "./IconText"
+
 
 
 

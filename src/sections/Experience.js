@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import Card, { IconsCard } from "../components/Card";
+import { IconsCard } from "../components/Card";
 import DropDown from "../components/Dropdown";
 import Section from "../components/Section";
 import Tag from "../components/Tag";
 import colors from "../styled_foundations/colors";
-import { Row } from "../styled_foundations/layout";
 import { H2, H3, H4 } from "../styled_foundations/text";
 
 
