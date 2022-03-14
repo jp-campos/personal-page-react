@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import ExpandableCard from "../components/ExpandableCard";
+import IconText from "../components/IconText";
 import Section from "../components/Section";
-import { RowCenter } from "../styled_foundations/layout";
 import {ReactComponent as SettingsSvg} from "../assets/svgs/settings.svg"
 import Tab from "../components/Tab";
 import { useState } from "react";
 import { WhiteSpaceLg } from "../styled_foundations/spacing";
+import { Column, RowCenter } from "../styled_foundations/layout";
+import Card from "../components/Card";
 
 const FlexContainer = styled(RowCenter)`
     row-gap: 60px;  
@@ -21,23 +23,29 @@ export default function Skills({ innerRef }) {
 
     const [currentTabPos, setCurrentTabPos] = useState(0)
     const onPosChanged = (pos)=>{
+        setCurrentTabPos(pos)
         console.log(pos)
     }
+
 
     return <Section title="Skills" innerRef={innerRef} >
         
         
-        <RowCenter>
+     
             <Tab leftIcon={leftIcon} 
             leftText={leftText} 
             rightIcon={rightIcon}
+     
             rightText={rightText}
             onPosChanged={onPosChanged}
+            leftChild={<TechSkills />}
+            rightChild={<SoftSkills/>}
             />
-        </RowCenter>
+     
         <WhiteSpaceLg/>
 
-        <TechSkills />
+        
+     
 
     </Section>
 }
@@ -58,11 +66,22 @@ const TechSkills = () => {
     </FlexContainer>
 }
 
+
+const SoftSkill = (props)=>{
+
+    return<Column>
+        <IconText asset="language"> English </IconText>
+        <p>Englush sf asd fgasdfhjkg df gskdfgh sdfgh sd</p>
+    </Column>
+}
+
 const SoftSkills = () => {
 
-    <FlexContainer>
-
-    </FlexContainer>
+    return <Card>
+        <FlexContainer>
+            <SoftSkill></SoftSkill>
+        </FlexContainer>
+    </Card>
 
 
 }

@@ -2,12 +2,15 @@ import React, { useRef, useState } from "react"
 import styled from "styled-components"
 import colors from "../styled_foundations/colors"
 import { Row, RowSpaceAround } from "../styled_foundations/layout"
-import { WhiteSpaceMd, WhiteSpaceXs } from "../styled_foundations/spacing"
+import { WhiteSpaceLg, WhiteSpaceMd, WhiteSpaceXs } from "../styled_foundations/spacing"
+import { RowCenter } from "../styled_foundations/layout";
 
 
 const width = 200
 
-const Container = styled(RowSpaceAround)`
+
+
+const TabContainer = styled(RowSpaceAround)`
     width: ${width}px;
     position: relative;
     padding: 10px 15px;
@@ -56,22 +59,29 @@ export default function Tab(props){
 
     }
 
-    const leftIcon = React.cloneElement(props.leftIcon, {fill: currPos == 0 ? colors.active : 'black'})
-    const rightIcon = React.cloneElement(props.rightIcon, {fill: currPos == 1 ? colors.active : 'black'})
-
-    return <Container>
+    const leftIcon = React.cloneElement(props.leftIcon, {fill: currPos === 0 ? colors.active : 'black'})
+    const rightIcon = React.cloneElement(props.rightIcon, {fill: currPos === 1 ? colors.active : 'black'})
+    const child = currPos === 0 ? props.leftChild : props.rightChild
+    return <>
+    <RowCenter>
+        <TabContainer>
         <TabSelector ref={selectorRef}/>
         <InnerRow ref={leftRef}  onClick={()=>handleOnClick(0)}>
             {leftIcon}
             <WhiteSpaceXs/>
-           <ColoredSpan color={currPos == 0 ? colors.active : 'black'}> {props.leftText}</ColoredSpan>
+           <ColoredSpan color={currPos === 0 ? colors.active : 'black'}> {props.leftText}</ColoredSpan>
         </InnerRow>
         <WhiteSpaceMd/>
         <InnerRow ref={rightRef}  onClick={()=>handleOnClick(1)}>
             {rightIcon}
             <WhiteSpaceXs/>
-            <ColoredSpan color={currPos == 1 ? colors.active : 'black'}> {props.rightText}</ColoredSpan>
+            <ColoredSpan color={currPos === 1 ? colors.active : 'black'}> {props.rightText}</ColoredSpan>
         </InnerRow>
 
-    </Container>
+    </TabContainer>
+    </RowCenter>
+    <WhiteSpaceLg/>
+    
+    {child}
+    </>
 }

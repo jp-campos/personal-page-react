@@ -18,26 +18,30 @@ const StyledCard = styled.div`
 
 
 const Left = styled.div`
-  width:20%;
+  width:${props=> props.width};
   border-radius: 8px 0px 0px 8px;
 `
 
 
 const Right = styled.div`
-  width:80%;
+  width:${props=> props.width};
   border-radius: 0px 8px 8px 0px;
   padding: 30px;
 `
 
 export default function Card(props) {
+
+  const rightWidth = props.left == null ? '100%': '80%'
+  const leftWidth = props.left == null  ? '0%' : '20%'
+  console.log(props.left == null) 
   return (
     <StyledCard>
 
-      <Left>
+      <Left width={leftWidth}>
         {props.left}
       </Left>
 
-      <Right>
+      <Right width={rightWidth}>
         {props.children}
       </Right>
     </StyledCard>
