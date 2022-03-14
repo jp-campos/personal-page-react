@@ -3,7 +3,7 @@ import ExpandableCard from "../components/ExpandableCard";
 import Section from "../components/Section";
 import { RowCenter } from "../styled_foundations/layout";
 import {ReactComponent as SettingsSvg} from "../assets/svgs/settings.svg"
-import SwitchTab from "../components/SwitchTab";
+import Tab from "../components/Tab";
 import { useState } from "react";
 import { WhiteSpaceLg } from "../styled_foundations/spacing";
 
@@ -28,7 +28,7 @@ export default function Skills({ innerRef }) {
         
         
         <RowCenter>
-            <SwitchTab leftIcon={leftIcon} 
+            <Tab leftIcon={leftIcon} 
             leftText={leftText} 
             rightIcon={rightIcon}
             rightText={rightText}

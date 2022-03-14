@@ -102,8 +102,6 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
 
    function  onItemClick  (navItemLabel)  {
         scrollTo(navItemLabel)
-    
-        
     }
 
     
