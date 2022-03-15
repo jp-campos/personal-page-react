@@ -55,7 +55,7 @@ export default function Tab(props){
             selectorRef.current.style.width= `${leftRef.current.offsetWidth  }px`
             setCurrPos(0)
         }  
-        props.onPosChanged(currPos)
+        
 
     }
 

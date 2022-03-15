@@ -4,17 +4,14 @@ import DropDown from "../components/Dropdown";
 import Section from "../components/Section";
 import Tag from "../components/Tag";
 import colors from "../styled_foundations/colors";
-import { H2, H3, H4 } from "../styled_foundations/text";
+import { H2, H3, H4, TextJustify } from "../styled_foundations/text";
+
 
 
 const DateText = styled.span`
     color: #6F6F6F;
 `
 
-const TextJustify = styled.span`
- text-align: justify;
-  text-justify: inter-word;
-`
 
 export default function Experience({ innerRef }) {
 
@@ -32,8 +29,8 @@ export default function Experience({ innerRef }) {
                  <p> Leveraged analytics and data science to give a digiital transformation to government processes</p>
             </TextJustify>
 
-            <H4> Technologies and methodologies used</H4>
-            <ul>
+            
+            <DropDown selected={true} >
 
                 <li>Datafactory ETLS </li>
                 <li>Apache Spark</li>
@@ -44,7 +41,7 @@ export default function Experience({ innerRef }) {
                 <li>Graph algorithms</li>
                 <li>K means</li>
 
-            </ul>
+            </DropDown>
 
         </IconsCard>
 
@@ -66,7 +63,6 @@ export default function Experience({ innerRef }) {
             </TextJustify>
             <DropDown>
                 
-
                 <li>Springboot Reactor Micro services </li>
                 <li>Rabbit MQ</li>
                 <li>AWS Cloudformation</li>
@@ -79,6 +75,7 @@ export default function Experience({ innerRef }) {
                 <li>Hybrid app with Flutter</li>
                 <li>Native Flutter plugins for IOS and Android</li>
                 <li>Atomic Design</li>
+                <li>SCRUM</li>
 
 
             </DropDown>

@@ -33,7 +33,7 @@ export default function Card(props) {
 
   const rightWidth = props.left == null ? '100%': '80%'
   const leftWidth = props.left == null  ? '0%' : '20%'
-  console.log(props.left == null) 
+  
   return (
     <StyledCard>
 

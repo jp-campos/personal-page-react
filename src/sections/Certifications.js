@@ -4,7 +4,7 @@ import IconLink from "../components/IconLink";
 import Section from "../components/Section";
 import { Row } from "../styled_foundations/layout";
 import { WhiteSpaceSm, WhiteSpaceXs } from "../styled_foundations/spacing";
-import { H2,  Label, NewPageLink } from "../styled_foundations/text";
+import { H2,  Label } from "../styled_foundations/text";
 
 
 
@@ -18,9 +18,6 @@ const links = {
 }
 
 
-const CertLink = styled(NewPageLink)`
-    margin: 50px 50px;
-`
 
 const Certifications = ({ innerRef }) => {
 

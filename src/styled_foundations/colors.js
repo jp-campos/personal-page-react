@@ -6,7 +6,8 @@ const colors = {
     clickable: '#B94A32',
     frontEndTagBg: '#D9D5F7',
     backEndTagBg: '#FFE3B8',
-    dataTag: '#a9e7cd'
+    dataTag: '#a9e7cd',
+    titleBlue: '#0E0C76'
     
 }
 

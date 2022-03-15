@@ -3,8 +3,6 @@ import Card from "../components/Card";
 import IconText from "../components/IconText";
 import Section from "../components/Section";
 import { RowSpaceAround } from "../styled_foundations/layout";
-import { StyledSection } from "../styled_foundations/spacing";
-import { H1 } from "../styled_foundations/text";
 import  {currAge, yearsExp } from "../utility/age_calculator";
 
 

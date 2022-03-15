@@ -8,12 +8,12 @@ export const H1 = styled.h1`
 `
 
 export const H2 = styled.h2` 
-    color: #0E0C76;
+    color: ${colors.titleBlue};
     margin: 0px;
 `
 
 export const H3 = styled.h3`
-  color: #0E0C76;
+  color: ${colors.titleBlue};
   font-weight: 400;
   margin: 5px 0px;
 `
@@ -30,6 +30,11 @@ export const Link = styled.a`
 export const Label = styled.span`
   font-weight: bold;
   
+`
+
+export const TextJustify = styled.span`
+ text-align: justify;
+  text-justify: inter-word;
 `
 
 export const NewPageLink = (props) => <Link href={props.href} fontSize={props.fontSize} target="_blank">{props.children}</Link>
