@@ -20,3 +20,8 @@ export const WhiteSpaceLg  = styled.div`
     height: 40px;
     width: 40px;
 `
+
+export const DynamicWhiteSpace = styled.div`
+    height: ${props => props.height};
+    width: ${props=> props.width};
+`
