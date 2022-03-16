@@ -1,24 +1,38 @@
 import styled from "styled-components";
 
+export const intPixelSizes = {
+    xs: 5,
+    s: 10,
+    md: 20,
+    lg: 40,
+}
+
+export const pixelSizes = {
+    xs: `${intPixelSizes.xs}px`,
+    s: `${intPixelSizes.s}px`,
+    md: `${intPixelSizes.md}px`,
+    lg: `${intPixelSizes.lg}px`,
+}
+
 
 export const WhiteSpaceXs  = styled.div`
-    height: 5px;
-    width: 5px;
+    height: ${pixelSizes.xs};
+    width:${pixelSizes.xs};
 `
 
 export const WhiteSpaceSm  = styled.div`
-    height: 10px;
-    width: 10px;
+    height: ${pixelSizes.s};
+    width: ${pixelSizes.s};
 `
 
 export const WhiteSpaceMd  = styled.div`
-    height: 20px;
-    width: 20px;
+    height: ${pixelSizes.md};
+    width: ${pixelSizes.md};
 `
 
 export const WhiteSpaceLg  = styled.div`
-    height: 40px;
-    width: 40px;
+    height: ${pixelSizes.lg};
+    width:  ${pixelSizes.lg};
 `
 
 export const DynamicWhiteSpace = styled.div`

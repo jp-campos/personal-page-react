@@ -2,13 +2,14 @@ import styled from "styled-components";
 import ExpandableCard from "../components/ExpandableCard";
 import IconText from "../components/IconText";
 import Section from "../components/Section";
-import {ReactComponent as SettingsSvg} from "../assets/svgs/settings.svg"
+import { ReactComponent as SettingsSvg } from "../assets/svgs/settings.svg"
 import Tab from "../components/Tab";
 import { WhiteSpaceLg } from "../styled_foundations/spacing";
 import { Column, RowCenter } from "../styled_foundations/layout";
 import Card from "../components/Card";
 import { TextJustify } from "../styled_foundations/text";
 import colors from "../styled_foundations/colors";
+import SearchBar from "../components/SearchBar";
 
 const FlexContainer = styled(RowCenter)`
     row-gap: 60px;  
@@ -18,29 +19,31 @@ const FlexContainer = styled(RowCenter)`
 
 export default function Skills({ innerRef }) {
 
-    const leftIcon =  <SettingsSvg fill="red" height="20px" width="20px" />
+    const leftIcon = <SettingsSvg height="20px" width="20px" />
     const leftText = "Tech"
-    const rightIcon =  <SettingsSvg fill="red" height="20px" width="20px" />
+    const rightIcon = <SettingsSvg height="20px" width="20px" />
     const rightText = "Soft"
 
 
 
 
     return <Section title="Skills" innerRef={innerRef} >
-        
-            <Tab leftIcon={leftIcon} 
-            leftText={leftText} 
+
+        <Tab leftIcon={leftIcon}
+            leftText={leftText}
             rightIcon={rightIcon}
-     
+
             rightText={rightText}
             leftChild={<TechSkills />}
-            rightChild={<SoftSkills/>}
-            />
-     
-        <WhiteSpaceLg/>
+            rightChild={<SoftSkills />}
+        />
 
-        
-     
+
+        <WhiteSpaceLg />
+
+        <RowCenter>
+            <SearchBar />
+        </RowCenter>
 
     </Section>
 }
@@ -62,13 +65,13 @@ const TechSkills = () => {
 }
 
 
-const  SoftSkillContainer = styled(Column)`
+const SoftSkillContainer = styled(Column)`
     width: 300px; 
 `
 
-const SoftSkill = (props)=>{
+const SoftSkill = (props) => {
 
-    return<SoftSkillContainer>
+    return <SoftSkillContainer>
         <IconText color={colors.titleBlue} fontSize='20px' asset={props.asset}> {props.title} </IconText>
         <TextJustify>{props.children}</TextJustify>
     </SoftSkillContainer>
@@ -92,7 +95,7 @@ const SoftSkills = () => {
             <SoftSkill asset='design_thinking' title='Design thinking' > A very important tool to get in touch with a client and give them the best solution possible </SoftSkill>
             <SoftSkill asset='clock' title='Time management'>With the help of project managing tools such as Azure Devops I am able to organize my time effectively  </SoftSkill>
             <SoftSkill asset='agile' title='Agile methodologies'> I can smoothly respond to change and follow the SCRUM framework </SoftSkill>
-         
+
         </SoftSkillFlexContainer>
     </Card>
 

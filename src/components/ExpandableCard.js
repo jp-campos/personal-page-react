@@ -60,7 +60,7 @@ export default function ExpandableCard(props){
     return <StyledCard>
         <Title>{props.children}</Title>
         <IconContainer>
-            {props.assets.map(el => <Icon height="30" width="30" asset={el}></Icon>)}
+            {props.assets.map(el => <Icon key={el} height="30" width="30" asset={el}></Icon>)}
         </IconContainer>
         <SeeMore>
         

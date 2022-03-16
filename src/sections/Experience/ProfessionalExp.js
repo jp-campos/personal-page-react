@@ -1,25 +1,19 @@
+import colors from "../../styled_foundations/colors";
+import { H2, H3,     TextJustify } from "../../styled_foundations/text";
+import { IconsCard } from "../../components/Card";
+import DropDown from "../../components/Dropdown";
+import Tag from "../../components/Tag";
 import styled from "styled-components";
-import { IconsCard } from "../components/Card";
-import DropDown from "../components/Dropdown";
-import Section from "../components/Section";
-import Tag from "../components/Tag";
-import colors from "../styled_foundations/colors";
-import { H2, H3, H4, TextJustify } from "../styled_foundations/text";
-
 
 
 const DateText = styled.span`
     color: #6F6F6F;
 `
+export default function ProfessionalExp(){
 
 
-export default function Experience({ innerRef }) {
-
-
-
-    return <Section title="Experience" innerRef={innerRef}>
-
-        <H2>Intern</H2>
+    return <>
+     <H2>Intern</H2>
         <DateText>01/20 - 06/20</DateText>
         <IconsCard assets={['ey','procuraduria']} >
             <H3>Inspector’s general officer  digital transformation</H3>
@@ -81,7 +75,5 @@ export default function Experience({ innerRef }) {
             </DropDown>
            
         </IconsCard>
-    </Section>
+    </>
 }
-
-

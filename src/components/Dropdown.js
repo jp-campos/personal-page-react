@@ -1,10 +1,9 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect,  useRef, useState } from "react";
 import styled from "styled-components";
 import { Row } from "../styled_foundations/layout";
 import { WhiteSpaceMd, WhiteSpaceSm } from "../styled_foundations/spacing";
 import colors from './../styled_foundations/colors'
-import Icon from "./Icon";
-import {ReactComponent as DownArrow} from "../assets/svgs/settings.svg"
+import {ReactComponent as DownArrow} from "../assets/svgs/down-arrow.svg"
 
 const Title = styled.p`
     color: ${colors.clickable};
@@ -54,7 +53,7 @@ const DropDown = (props) => {
             <Title>Technologies and methodologies used</Title>
             <WhiteSpaceSm/>
             <RotationWrapper active={selected}>
-                <DownArrow/>
+                <DownArrow height="20px" width="20px" />
             </RotationWrapper>
         </TitleContainer>
 

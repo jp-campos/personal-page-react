@@ -26,7 +26,7 @@ const Certifications = ({ innerRef }) => {
         
         <H2>Go courses</H2>
         <WhiteSpaceSm/>
-        <IconsCard assets={['go', 'coursera']}>
+        <IconsCard key="go" assets={['go', 'coursera']}>
             
 
         <Certification
@@ -57,7 +57,7 @@ const Certifications = ({ innerRef }) => {
 
         <H2>AWS courses and certifications</H2>
         <WhiteSpaceSm/>
-        <IconsCard assets={['aws_certified_dev', 'cloudguru', 'coursera']}>
+        <IconsCard key="aws" assets={['aws_certified_dev', 'cloudguru', 'coursera']}>
             
         
 
@@ -89,13 +89,13 @@ const Certifications = ({ innerRef }) => {
 }
 
 
-
+  const Field = styled(Row)`
+    margin-left: ${props => props.marginLeft};
+    `
 
 const Certification = (props) => {
 
-    const Field = styled(Row)`
-    margin-left: ${props => props.marginLeft};
-    `
+  
     return <>
         <IconLink size={props.size} href={props.href}>{props.children}</IconLink>
         <WhiteSpaceSm />

@@ -2,23 +2,22 @@ import React, { useLayoutEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import colors from "../styled_foundations/colors"
 import { Row, RowSpaceAround } from "../styled_foundations/layout"
-import { DynamicWhiteSpace, WhiteSpaceLg, WhiteSpaceMd, WhiteSpaceXs } from "../styled_foundations/spacing"
+import { DynamicWhiteSpace, WhiteSpaceLg, WhiteSpaceMd, WhiteSpaceXs, intPixelSizes } from "../styled_foundations/spacing"
 import { RowCenter } from "../styled_foundations/layout";
 
 
-const width = 200
 
 
 
 const TabContainer = styled(RowSpaceAround)`
-    width: ${width}px;
+    width: ${props=> props.width}px;
     position: relative;
     padding: 10px 15px;
     height: 40px;
 `
 
 const InnerRow = styled(Row)`
-    flex: 1;
+
     cursor: pointer;
 `
 
@@ -29,7 +28,7 @@ const TabSelector = styled.div`
     position: absolute;
     border-radius: 8px;
     height: 2px;
-    left: -2px; 
+    left: 0px; 
     bottom: 0px;
     transition: left 200ms;
 
@@ -42,7 +41,7 @@ const ChildContainer = styled.div`
     left: 0;
     top: 0;
     transform: ${props => props.translate};
-    transition: transform 500ms ease;
+    transition: all 500ms ease;
 `
 
 const ChildrenContainer = styled.div`
@@ -58,32 +57,53 @@ export default function Tab(props) {
     const [leftChildTranslate, setLeftChildTranslate] = useState('')
     const [rightChildTranslate, setRightChildTranslate] = useState('translateX(-100vw)')
     const [childrenMaxHeight, setChildrenMaxHeight] = useState(100)
+    const [width, setWidth] = useState(500)
+
     const leftChildRef = useRef()
     const rightChildRef = useRef()
+  
+   const selectorRef = useRef()
+    const leftRef = useRef()
+    const rightRef = useRef()
+    const leftTextRef = useRef()
+    const rightTextRef = useRef()
 
-    useLayoutEffect(()=>{
+    const setMaxHeightAndContainerWidth = () => {
         let leftHeight = leftChildRef.current.offsetHeight
         let rightHeight = rightChildRef.current.offsetHeight
         let maxHeight = leftHeight > rightHeight ? leftHeight : rightHeight
+
+        let leftWidth = leftTextRef.current.offsetWidth
+        let rightWidth = rightTextRef.current.offsetWidth 
+        let whiteSpace = intPixelSizes.xs*2 
+        let icons = intPixelSizes.md * 2
+
+        setWidth(leftWidth + rightWidth + whiteSpace + icons + 50 ) 
+
         setChildrenMaxHeight(maxHeight)
+    }
+    useLayoutEffect(() => {
+        selectorRef.current.style.width = `${leftRef.current.offsetWidth + 15}px`
 
-    },[leftChildRef, rightChildRef])
+        window.addEventListener('resize', setMaxHeightAndContainerWidth);
+        setMaxHeightAndContainerWidth()
 
-    const selectorRef = useRef()
-    const leftRef = useRef()
-    const rightRef = useRef()
+        return () => window.removeEventListener('resize', setMaxHeightAndContainerWidth);
+    }, [])
+
+ 
 
 
     const handleOnClick = (pos) => {
         if (pos === 1) {
             selectorRef.current.style.left = `${rightRef.current.offsetLeft - 4}px`
-            selectorRef.current.style.width = `${rightRef.current.offsetWidth}px`
+            selectorRef.current.style.width = `${rightRef.current.offsetWidth + 15}px`
             setLeftChildTranslate('translateX(100vw)')
             setRightChildTranslate('')
             setCurrPos(1)
         } else {
             selectorRef.current.style.left = `${leftRef.current.offsetLeft - 4}px`
-            selectorRef.current.style.width = `${leftRef.current.offsetWidth}px`
+            selectorRef.current.style.width = `${leftRef.current.offsetWidth + 15}px`
             setLeftChildTranslate('')
             setRightChildTranslate('translateX(-100vw)')
             setCurrPos(0)
@@ -97,24 +117,24 @@ export default function Tab(props) {
 
     return <>
         <RowCenter>
-            <TabContainer>
+            <TabContainer width={width}>
                 <TabSelector ref={selectorRef} />
-                <InnerRow ref={leftRef} onClick={() => handleOnClick(0)}>
+                <InnerRow ref={leftRef} onClick={() => handleOnClick(0)} >
                     {leftIcon}
                     <WhiteSpaceXs />
-                    <ColoredSpan color={currPos === 0 ? colors.active : 'black'}> {props.leftText}</ColoredSpan>
+                    <ColoredSpan ref={leftTextRef} color={currPos === 0 ? colors.active : 'black'}> {props.leftText}</ColoredSpan>
                 </InnerRow>
                 <WhiteSpaceMd />
-                <InnerRow ref={rightRef} onClick={() => handleOnClick(1)}>
+                <InnerRow ref={rightRef} onClick={() => handleOnClick(1)} >
                     {rightIcon}
                     <WhiteSpaceXs />
-                    <ColoredSpan color={currPos === 1 ? colors.active : 'black'}> {props.rightText}</ColoredSpan>
+                    <ColoredSpan ref={rightTextRef} color={currPos === 1 ? colors.active : 'black'}> {props.rightText}</ColoredSpan>
                 </InnerRow>
 
             </TabContainer>
         </RowCenter>
         <WhiteSpaceLg />
-       
+
         <ChildrenContainer>
             <ChildContainer translate={leftChildTranslate} ref={leftChildRef}>
                 {props.leftChild}
@@ -125,10 +145,8 @@ export default function Tab(props) {
             </ChildContainer>
 
         </ChildrenContainer>
-        <DynamicWhiteSpace height={childrenMaxHeight + 'px'}/>
+        <DynamicWhiteSpace height={childrenMaxHeight + 'px'} />
 
     </>
 }
 
-const _isFirst = (pos) => pos === 0
-const _isLast = (pos) => !_isFirst(pos)

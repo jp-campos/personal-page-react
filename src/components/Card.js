@@ -63,8 +63,8 @@ export function IconsCard(props) {
   const left = <IconsContainer>
 
     {props.assets
-      .map((asset) => <Icon height={100} width={100} asset={asset} />)
-      .flatMap((icon) => [icon, <IconSpacing />])
+      .map((asset) => <Icon key={asset} height={100} width={100} asset={asset} />)
+      .flatMap((icon, i) => [icon, <IconSpacing key={i} />])
     }
   </IconsContainer>
 

@@ -66,7 +66,6 @@ const NavItemSelector = styled.div`
         height: 30px;
         z-index: 48; 
         transition: left 0.4s, width 0.4s;
-
 `
 
 
@@ -80,6 +79,18 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
    
 
     useEffect(() => {
+
+        function setSelector(navItemLabel){
+            if(showNavItems){
+                let navItemSelectorEl = itemSelectorRef.current
+                currRef.current = refs.current[navItemLabel]
+    
+                navItemSelectorEl.style.left = `${currRef.current.offsetLeft - 4}px`
+                navItemSelectorEl.style.width = `${currRef.current.offsetWidth + 8}px`
+            }
+    
+        }
+
         if(typeof currSection !== 'undefined'){
              setSelector(currSection)      
         }
@@ -87,18 +98,7 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
        
     }, [currSection, showNavItems])
 
-
-
-    function setSelector(navItemLabel){
-        if(showNavItems){
-            let navItemSelectorEl = itemSelectorRef.current
-            currRef.current = refs.current[navItemLabel]
-
-            navItemSelectorEl.style.left = `${currRef.current.offsetLeft - 4}px`
-            navItemSelectorEl.style.width = `${currRef.current.offsetWidth + 8}px`
-        }
-
-    }
+   
 
    function  onItemClick  (navItemLabel)  {
         scrollTo(navItemLabel)

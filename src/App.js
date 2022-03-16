@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import AboutMe from './sections/AboutMe.js';
 import Skills from './sections/Skills.js';
 import {useRef} from 'react'
-import Experience from './sections/Experience.js';
+import Experience from './sections/Experience/Experience';
 import Navigator from './components/Navigator.js';
 import { NAV_ITEM_LABELS } from './components/nav_bar/constants.js';
 import Certifications from './sections/Certifications.js';

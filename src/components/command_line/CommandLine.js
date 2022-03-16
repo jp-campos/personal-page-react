@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState, useRef } from "react"
+import { useEffect, useLayoutEffect, useState, useRef, useCallback } from "react"
 import { ColumnCenter } from "../../styled_foundations/layout"
 import IconText from "../IconText"
 import { NAV_ITEM_LABELS } from "../nav_bar/constants";
@@ -12,14 +12,15 @@ export default function CommandLine({scrollPosition,minimizedCallback,scrollTo }
 
     const [scrollAnimationPos, setScrollAnimationPos] = useState(0)
     const [animationState, setAnimationState] = useState(AnimationState.Initial)
-
+    const executeScroll = useCallback(() => scrollTo(NAV_ITEM_LABELS.aboutMe), [scrollTo])
+    
     useEffect(() => {
         if (scrollPosition < scrollAnimationPos && animationState === AnimationState.Forward) {
             setAnimationState(AnimationState.Reverse);
             minimizedCallback(false)
             setTimeout(() => { setAnimationState(AnimationState.Initial) }, 200)
         }
-    }, [scrollPosition, animationState,scrollAnimationPos])
+    }, [scrollPosition, animationState,scrollAnimationPos, minimizedCallback])
 
     useLayoutEffect(() => {
         if (bodyRef.current.clientHeight < bodyRef.current.scrollHeight && animationState === AnimationState.Initial) {
@@ -28,12 +29,9 @@ export default function CommandLine({scrollPosition,minimizedCallback,scrollTo }
             minimizedCallback(true)
             executeScroll()
         }
-    }, [bodyRef, animationState, scrollPosition, executeScroll])
+    }, [bodyRef, animationState, scrollPosition, executeScroll, minimizedCallback])
 
 
-    function executeScroll(){
-        scrollTo(NAV_ITEM_LABELS.aboutMe)
-    }
 
 
     return <Container height={scrollPosition} state={animationState}>
