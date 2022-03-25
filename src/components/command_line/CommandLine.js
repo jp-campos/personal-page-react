@@ -27,9 +27,8 @@ export default function CommandLine({scrollPosition,minimizedCallback,scrollTo }
             setAnimationState(AnimationState.Forward)
             setScrollAnimationPos(scrollPosition)
             minimizedCallback(true)
-            executeScroll()
         }
-    }, [bodyRef, animationState, scrollPosition, executeScroll, minimizedCallback])
+    }, [bodyRef, animationState, scrollPosition, minimizedCallback])
 
 
 
