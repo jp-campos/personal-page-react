@@ -57,7 +57,7 @@ const TechSkills = () => {
         <ExpandableCard assets={['javascript', 'css', 'html', 'flutter', 'react']}>Front-End</ExpandableCard>
         <ExpandableCard assets={['java', 'spring', 'reactor', 'go', 'node', 'python']}>Back-End</ExpandableCard>
         <ExpandableCard assets={['flutter', 'swift', 'kotlin', 'android', 'ios']}>Mobile</ExpandableCard>
-        <ExpandableCard assets={['postgres', 'rabbitmq', 'mongo', 'powerbi', 'spark']}>Data</ExpandableCard>
+        <ExpandableCard assets={['postgres', 'rabbitmq', 'mongo', 'powerbi', 'spark', 'firebase']}>Data</ExpandableCard>
         <ExpandableCard assets={['git', 'azuredevops']}>Version Control & Devops</ExpandableCard>
         <ExpandableCard assets={['serenity', 'cucumber', 'mockito']}>Testing</ExpandableCard>
         <ExpandableCard assets={['aws', 'azure']}>Cloud</ExpandableCard>
