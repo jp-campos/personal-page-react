@@ -8,18 +8,13 @@ const getSkills = async (skill)=> {
 }
 
 
-const postSkill = async (skill) =>{ 
-    let res = await axios.post(`${baseUrl}/skills`, {"skill": skill})
-}
+const postSkill = async (skill) => await axios.post(`${baseUrl}/skill`, {"skill": skill})
+   
 const httpClient = {
 
     getSkills: getSkills, 
     postSkill: postSkill
 
 }
-
-
-
-
 
 export default httpClient

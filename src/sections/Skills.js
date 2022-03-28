@@ -4,10 +4,10 @@ import IconText from "../components/IconText";
 import Section from "../components/Section";
 import { ReactComponent as SettingsSvg } from "../assets/svgs/settings.svg"
 import Tab from "../components/Tab";
-import { WhiteSpaceLg } from "../styled_foundations/spacing";
+import { WhiteSpaceLg, WhiteSpaceSm } from "../styled_foundations/spacing";
 import { Column, RowCenter } from "../styled_foundations/layout";
 import Card from "../components/Card";
-import { TextJustify } from "../styled_foundations/text";
+import { H2,  TextJustify } from "../styled_foundations/text";
 import colors from "../styled_foundations/colors";
 import SearchBar from "../components/SearchBar";
 
@@ -17,6 +17,11 @@ const FlexContainer = styled(RowCenter)`
     align-items: flex-start;
 `
 
+const SearchBarLabel = styled(H2)`
+    color: ${colors.active}; 
+
+
+`
 export default function Skills({ innerRef }) {
 
     const leftIcon = <SettingsSvg height="20px" width="20px" />
@@ -40,9 +45,11 @@ export default function Skills({ innerRef }) {
 
 
         <WhiteSpaceLg />
-
+        <SearchBarLabel>Help me grow</SearchBarLabel>
+        <WhiteSpaceSm></WhiteSpaceSm>
         <RowCenter>
             <SearchBar />
+
         </RowCenter>
 
     </Section>

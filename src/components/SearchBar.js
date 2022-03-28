@@ -26,19 +26,15 @@ const StyledSearchBar = styled.input`
 const Container = styled(Row)`
     width: 100%;
     position: relative;
-
 `
 
 const BtnContainer = styled.div`
     left: 10px;
     top: 8px; 
     position: absolute;
-    
-
 `
 
 export default function SearchBar() {
-
 
     const [input, setInput] = useState('');
     const [data, setData] = useState([])
@@ -46,8 +42,6 @@ export default function SearchBar() {
     const [loadingPost, setLoadingPost] = useState(false)
     const [focused, setFocused] = useState(false)
     const [disabled, setDisabled] = useState(false)
-
-
 
     const onChanged = async (value) => {
         setInput(value)
@@ -58,7 +52,7 @@ export default function SearchBar() {
                 setData(response)
 
             } catch (err) {
-
+                
             }
             setLoading(false)
         } else {
@@ -66,8 +60,21 @@ export default function SearchBar() {
         }
 
     }
+    
     const successToast = ()=> {
         toast.success('Skill added succesfully', {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+    }
+
+    const failureToast = () => {
+        toast.error('Something went wrong', {
             position: "bottom-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -82,22 +89,28 @@ export default function SearchBar() {
             setDisabled(true)
             try {
                 setLoadingPost(true)
-                let response = await httpClient.postSkill(skill)
-                successToast()
-                loadingPost(false)
+                await httpClient.postSkill(skill)
+                
+                setLoadingPost(false)
                 setDisabled(false)
+                successToast()
             } catch (err) {
                 setLoadingPost(false)
                 setDisabled(false)
+                failureToast()
             }
         }
-
-
     }
 
     const onSelected = (skill) => {
         setInput(skill)
         postSkill(skill)
+    }
+
+    const onKeyDown = (event) =>{
+        if (event.key === 'Enter') {
+            onSelected(input)
+        }
     }
 
     return <>
@@ -108,6 +121,7 @@ export default function SearchBar() {
                 placeholder="Send me a skill you are searching for"
                 value={input}
                 onInput={evt => onChanged(evt.target.value)}
+                onKeyDown={onKeyDown}
                 disabled={disabled}
             />
             <BtnContainer>
@@ -126,13 +140,10 @@ export default function SearchBar() {
             draggable
             pauseOnHover
         />
-
-
     </>
 }
 
 const ItemsContainer = styled.div`
-  
     position: absolute;
     z-index: 200;
     top: ${searchBarHeight};
@@ -152,7 +163,6 @@ const Item = styled.div`
 `
 
 const SearchItems = ({ data, loading, onSelected }) => {
-
 
     const child = loading ? 'Loading...'
         : data.flatMap((e, i) => [<Item onClick={() => onSelected(e)} key={`item${i}`}>{e}</Item>, <WhiteSpaceSm key={`white${i}`} />,])
