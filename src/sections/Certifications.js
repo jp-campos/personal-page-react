@@ -5,8 +5,7 @@ import Section from "../components/Section";
 import { Row } from "../styled_foundations/layout";
 import { WhiteSpaceSm, WhiteSpaceXs } from "../styled_foundations/spacing";
 import { H2,  Label } from "../styled_foundations/text";
-
-
+import {ReactComponent as Icon} from "../assets/svgs/certification.svg"
 
 const links = {
     goStarted: "https://www.coursera.org/account/accomplishments/certificate/QZU6TMANFQZG",
@@ -19,10 +18,12 @@ const links = {
 
 
 
+
+
 const Certifications = ({ innerRef }) => {
 
-
-    return <Section title="Certifications and Courses" innerRef={innerRef}>
+    const icon = <Icon width="160px" height="100px"/>
+    return <Section icon={icon} title="Certifications and Courses" innerRef={innerRef}>
         
         <H2>Go courses</H2>
         <WhiteSpaceSm/>

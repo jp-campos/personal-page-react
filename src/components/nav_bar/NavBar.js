@@ -114,7 +114,6 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
                 <NavItem onClick={()=>onItemClick(NAV_ITEM_LABELS.skills)}  innerRef={e => refs.current[NAV_ITEM_LABELS.skills] = e}>Skills</NavItem>
                 <NavItem onClick={()=>onItemClick(NAV_ITEM_LABELS.exp)} innerRef={e => refs.current[NAV_ITEM_LABELS.exp] = e}>Experience</NavItem>
                 <NavItem onClick={()=>onItemClick(NAV_ITEM_LABELS.certs)} innerRef={e=> refs.current[NAV_ITEM_LABELS.certs] = e}>Certifications</NavItem>
-                <NavItem onClick={()=>onItemClick(NAV_ITEM_LABELS.contactMe)} innerRef={e=> refs.current[NAV_ITEM_LABELS.contactMe] = e}>Contact Me</NavItem>
             </NavItemsContainer>
 
         }

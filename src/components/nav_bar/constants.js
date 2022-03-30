@@ -5,5 +5,5 @@ export const NAV_ITEM_LABELS = {
     skills: 'skillsNav',
     exp: 'expNav',
     certs:'certsNav',
-    contactMe:'contactMeNav'
+    
 }

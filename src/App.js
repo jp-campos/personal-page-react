@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import AboutMe from './sections/AboutMe.js';
 import Skills from './sections/Skills.js';
-import {useRef} from 'react'
+import { useRef } from 'react'
 import Experience from './sections/Experience/Experience';
 import Navigator from './components/Navigator.js';
 import { NAV_ITEM_LABELS } from './components/nav_bar/constants.js';
@@ -19,19 +19,19 @@ const HeroWhiteSpace = styled.div`
 
 
 function App() {
-  
+
   const sectionRefs = useRef({})
 
   return (
     <Navigator sectionRefs={sectionRefs.current} >
-      
+
       <Body>
-        <HeroWhiteSpace/>
-        
-        <AboutMe innerRef = {e => sectionRefs.current[NAV_ITEM_LABELS.aboutMe] = e}/>
-       <Skills innerRef = {e => sectionRefs.current[NAV_ITEM_LABELS.skills] = e}/>
-       <Experience innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.exp] = e}/>
-        <Certifications innerRef={e =>  sectionRefs.current[NAV_ITEM_LABELS.certs] = e}/>
+        <HeroWhiteSpace />
+
+        <AboutMe innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.aboutMe] = e} />
+        <Skills innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.skills] = e} />
+        <Experience innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.exp] = e} />
+        <Certifications innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.certs] = e} />
       </Body>
     </Navigator>
 

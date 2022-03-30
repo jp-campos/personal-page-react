@@ -6,9 +6,6 @@ import { DynamicWhiteSpace, WhiteSpaceLg, WhiteSpaceMd, WhiteSpaceXs, intPixelSi
 import { RowCenter } from "../styled_foundations/layout";
 
 
-
-
-
 const TabContainer = styled(RowSpaceAround)`
     width: ${props=> props.width}px;
     position: relative;
@@ -41,7 +38,7 @@ const ChildContainer = styled.div`
     left: 0;
     top: 0;
     transform: ${props => props.translate};
-    transition: all 500ms ease;
+    transition: all 500ms ease-in-out;
 `
 
 const ChildrenContainer = styled.div`
@@ -50,12 +47,11 @@ const ChildrenContainer = styled.div`
 `
 
 
-
 export default function Tab(props) {
 
     const [currPos, setCurrPos] = useState(0)
     const [leftChildTranslate, setLeftChildTranslate] = useState('')
-    const [rightChildTranslate, setRightChildTranslate] = useState('translateX(-100vw)')
+    const [rightChildTranslate, setRightChildTranslate] = useState('translateX(100vw)')
     const [childrenMaxHeight, setChildrenMaxHeight] = useState(100)
     const [width, setWidth] = useState(500)
 
@@ -82,6 +78,7 @@ export default function Tab(props) {
 
         setChildrenMaxHeight(maxHeight)
     }
+
     useLayoutEffect(() => {
         selectorRef.current.style.width = `${leftRef.current.offsetWidth + 15}px`
 
@@ -98,14 +95,14 @@ export default function Tab(props) {
         if (pos === 1) {
             selectorRef.current.style.left = `${rightRef.current.offsetLeft - 4}px`
             selectorRef.current.style.width = `${rightRef.current.offsetWidth + 15}px`
-            setLeftChildTranslate('translateX(100vw)')
+            setLeftChildTranslate('translateX(-100vw)')
             setRightChildTranslate('')
             setCurrPos(1)
         } else {
             selectorRef.current.style.left = `${leftRef.current.offsetLeft - 4}px`
             selectorRef.current.style.width = `${leftRef.current.offsetWidth + 15}px`
             setLeftChildTranslate('')
-            setRightChildTranslate('translateX(-100vw)')
+            setRightChildTranslate('translateX(100vw)')
             setCurrPos(0)
         }
 

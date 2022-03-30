@@ -4,7 +4,6 @@ import Hero from "./Hero"
 
 export default function Navigator({ sectionRefs, children }) {
 
-
     const [scrollPosition, setScrollPosition] = useState(0)
     const [currSection, setCurrSection] = useState()
 
@@ -33,13 +32,9 @@ export default function Navigator({ sectionRefs, children }) {
         window.addEventListener('scroll', handleScroll, { passive: true })
         return () => window.removeEventListener('scroll', handleScroll)
     }, [sectionRefs])
-
-   
-
     
 
     const scrollTo = async (section) => {
-        
         sectionRefs[section]?.scrollIntoView()
     }
 

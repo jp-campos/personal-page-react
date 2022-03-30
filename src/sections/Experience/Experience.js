@@ -6,6 +6,7 @@ import Tab from "../../components/Tab";
 
 import ProfessionalExp from "./ProfessionalExp";
 import { WhiteSpaceLg } from "../../styled_foundations/spacing";
+import {ReactComponent as Icon} from "../../assets/svgs/computer.svg"
 
 
 
@@ -19,8 +20,11 @@ export default function Experience({ innerRef }) {
     const leftText = 'Professional'
     const rightIcon = <User width="20px" height="20px" />
     const rightText = 'Personal'
-    
-    return <Section title="Experience" innerRef={innerRef}>
+
+
+    const icon = <Icon width="100px" height="100px"/>
+
+    return <Section icon={icon} title="Experience" innerRef={innerRef}>
 
         <Tab leftIcon={leftIcon} 
             leftText={leftText} 

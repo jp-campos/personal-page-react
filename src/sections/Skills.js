@@ -10,6 +10,7 @@ import Card from "../components/Card";
 import { H2,  TextJustify } from "../styled_foundations/text";
 import colors from "../styled_foundations/colors";
 import SearchBar from "../components/SearchBar";
+import Icon from "../components/Icon";
 
 const FlexContainer = styled(RowCenter)`
     row-gap: 60px;  
@@ -29,10 +30,9 @@ export default function Skills({ innerRef }) {
     const rightIcon = <SettingsSvg height="20px" width="20px" />
     const rightText = "Soft"
 
+    const icon = <Icon asset="books" width="130px" height="50px" />
 
-
-
-    return <Section title="Skills" innerRef={innerRef} >
+    return <Section icon={icon} title="Skills" innerRef={innerRef} >
 
         <Tab leftIcon={leftIcon}
             leftText={leftText}
