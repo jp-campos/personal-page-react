@@ -7,6 +7,7 @@ import Tab from "../../components/Tab";
 import ProfessionalExp from "./ProfessionalExp";
 import { WhiteSpaceLg } from "../../styled_foundations/spacing";
 import {ReactComponent as Icon} from "../../assets/svgs/computer.svg"
+import PersonalExp from "./PersonalExp";
 
 
 
@@ -31,7 +32,7 @@ export default function Experience({ innerRef }) {
             rightIcon={rightIcon}
             rightText={rightText}
             leftChild={<ProfessionalExp />}
-            rightChild={<ProfessionalExp/>}
+            rightChild={<PersonalExp/>}
             />
 
         <WhiteSpaceLg/>

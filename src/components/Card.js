@@ -6,7 +6,6 @@ import Icon from './Icon'
 
 const StyledCard = styled.div`
   display:flex;
-  min-height: 230px;
   border:none;
   border-radius: 8px;
   background-color: white;
