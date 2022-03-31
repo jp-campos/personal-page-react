@@ -3,6 +3,8 @@ import ExpandableCard from "../components/ExpandableCard";
 import IconText from "../components/IconText";
 import Section from "../components/Section";
 import { ReactComponent as SettingsSvg } from "../assets/svgs/settings.svg"
+import { ReactComponent as SoftSkillsIcon } from "../assets/svgs/soft_skills.svg"
+
 import Tab from "../components/Tab";
 import { WhiteSpaceLg, WhiteSpaceSm } from "../styled_foundations/spacing";
 import { Column, RowCenter } from "../styled_foundations/layout";
@@ -27,7 +29,7 @@ export default function Skills({ innerRef }) {
 
     const leftIcon = <SettingsSvg height="20px" width="20px" />
     const leftText = "Tech"
-    const rightIcon = <SettingsSvg height="20px" width="20px" />
+    const rightIcon = <SoftSkillsIcon height="20px" width="20px" />
     const rightText = "Soft"
 
     const icon = <Icon asset="books" width="130px" height="50px" />

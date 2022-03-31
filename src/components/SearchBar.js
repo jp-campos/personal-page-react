@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import colors from "../styled_foundations/colors"
 import { useState } from "react"
-import httpClient from "../infraestructure/httpClient";
+import httpClient from "../infrastructure/httpClient";
 import { pixelSizes, WhiteSpaceSm } from "../styled_foundations/spacing";
 import { Row } from "../styled_foundations/layout"
 import { AddBtn } from "../styled_foundations/buttons";
