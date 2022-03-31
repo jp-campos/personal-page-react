@@ -21,6 +21,7 @@ export default function Section({ children, icon, title, innerRef }) {
                 <WhiteSpaceMd/>
                 {icon}
             </RowCenter>
+            <WhiteSpaceMd/>
             {children}
         </StyledSection>
     </>

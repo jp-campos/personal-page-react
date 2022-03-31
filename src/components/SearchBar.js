@@ -52,7 +52,7 @@ export default function SearchBar() {
                 setData(response)
 
             } catch (err) {
-                
+
             }
             setLoading(false)
         } else {
@@ -60,9 +60,9 @@ export default function SearchBar() {
         }
 
     }
-    
-    const successToast = ()=> {
-        toast.success('Skill added succesfully', {
+
+    const successToast = (msg) => {
+        toast.success(msg, {
             position: "bottom-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -70,7 +70,7 @@ export default function SearchBar() {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            });
+        });
     }
 
     const failureToast = () => {
@@ -82,18 +82,23 @@ export default function SearchBar() {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            });
+        });
     }
+
+
     const postSkill = async (skill) => {
         if (!loadingPost) {
             setDisabled(true)
             try {
                 setLoadingPost(true)
-                await httpClient.postSkill(skill)
-                
+                let res = await httpClient.postSkill(skill)
+                let count = res.data.count
+                let skillName = res.data.name
                 setLoadingPost(false)
                 setDisabled(false)
-                successToast()
+
+                let msg = count === 1 ? 'You are the first one to suggest me this skill :)' : `${skillName} has been suggested ${count} times`
+                successToast(msg)
             } catch (err) {
                 setLoadingPost(false)
                 setDisabled(false)
@@ -107,7 +112,7 @@ export default function SearchBar() {
         postSkill(skill)
     }
 
-    const onKeyDown = (event) =>{
+    const onKeyDown = (event) => {
         if (event.key === 'Enter') {
             onSelected(input)
         }
