@@ -2,6 +2,7 @@ import { Column } from "../styled_foundations/layout";
 import styled from "styled-components"
 import { H3 } from "../styled_foundations/text";
 import { useState } from "react";
+import { device } from "../utility/display";
 
 
 const StyledCard = styled(Column)`
@@ -9,6 +10,11 @@ border-radius: 8px;
 background-color: white;
 width: 500px;
 cursor: pointer; 
+@media ${device.mobileL}{
+    width: 100%;
+    
+}
+
 `
 
 const BotWrapper = styled.div`

@@ -13,6 +13,7 @@ import { H2,  TextJustify } from "../styled_foundations/text";
 import colors from "../styled_foundations/colors";
 import SearchBar from "../components/SearchBar";
 import Icon from "../components/Icon";
+import { device } from "../utility/display";
 
 const FlexContainer = styled(RowCenter)`
     row-gap: 60px;  
@@ -76,6 +77,9 @@ const TechSkills = () => {
 
 const SoftSkillContainer = styled(Column)`
     width: 300px; 
+    @media ${device.laptop}{
+        width: 90%;
+    }
 `
 
 const SoftSkill = (props) => {

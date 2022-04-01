@@ -8,15 +8,23 @@ import { NAV_ITEM_LABELS } from './components/nav_bar/constants.js';
 import Certifications from './sections/Certifications.js';
 import Footer from './sections/Footer.js';
 import { WhiteSpaceLg } from './styled_foundations/spacing.js';
+import { device } from './utility/display.js';
 
 const Body = styled.div`
-  
-  padding-left: 50px; 
+ padding-left: 50px; 
   padding-right: 50px;
+  @media ${device.tablet} {
+    padding-left: 5px; 
+  padding-right: 5px;
+  }
+   
 `
 //TODO: Hacer media query
 const HeroWhiteSpace = styled.div`
     height: 100vh;
+    @media ${device.mobileL}{
+      height: 70vh;
+    }
 `
 
 

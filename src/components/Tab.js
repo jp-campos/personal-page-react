@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import colors from "../styled_foundations/colors"
 import { Row, RowSpaceAround } from "../styled_foundations/layout"
-import { DynamicWhiteSpace, WhiteSpaceLg, WhiteSpaceMd, WhiteSpaceXs, intPixelSizes } from "../styled_foundations/spacing"
+import { DynamicWhiteSpace, WhiteSpaceLg, WhiteSpaceMd, WhiteSpaceXs} from "../styled_foundations/spacing"
 import { RowCenter } from "../styled_foundations/layout";
 
 
@@ -53,7 +53,6 @@ export default function Tab(props) {
     const [leftChildTranslate, setLeftChildTranslate] = useState('')
     const [rightChildTranslate, setRightChildTranslate] = useState('translateX(100vw)')
     const [childrenMaxHeight, setChildrenMaxHeight] = useState(100)
-    const [width, setWidth] = useState(500)
 
     const leftChildRef = useRef()
     const rightChildRef = useRef()
@@ -68,13 +67,6 @@ export default function Tab(props) {
         let leftHeight = leftChildRef.current.offsetHeight
         let rightHeight = rightChildRef.current.offsetHeight
         let maxHeight = leftHeight > rightHeight ? leftHeight : rightHeight
-
-        let leftWidth = leftTextRef.current.offsetWidth
-        let rightWidth = rightTextRef.current.offsetWidth 
-        let whiteSpace = intPixelSizes.xs*2 
-        let icons = intPixelSizes.md * 2
-
-        setWidth(leftWidth + rightWidth + whiteSpace + icons + 50 ) 
 
         setChildrenMaxHeight(maxHeight)
     }
@@ -114,7 +106,7 @@ export default function Tab(props) {
 
     return <>
         <RowCenter>
-            <TabContainer width={width}>
+            <TabContainer >
                 <TabSelector ref={selectorRef} />
                 <InnerRow ref={leftRef} onClick={() => handleOnClick(0)} >
                     {leftIcon}

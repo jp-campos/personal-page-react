@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import { Row, RowCenter } from "../../styled_foundations/layout";
+import { device } from "../../utility/display";
 import { AnimationState, marginTopPixels } from "./constants";
 
 
 
 
-export const  Container = styled.div.attrs(props => ({
+export const Container = styled.div.attrs(props => ({
     style: {
         height: props.state === AnimationState.Forward ? '100px' : `calc(80vh - ${props.height}px)`,
-        
+
         visibility: props.state === AnimationState.Forward && 'hidden',
         width: props.state === AnimationState.Forward && '0px',
         transform: _getTransform(props.state),
@@ -18,9 +19,15 @@ export const  Container = styled.div.attrs(props => ({
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: ${marginTopPixels}px;
+        top: ${marginTopPixels}px; 
         left: 10%;
         width:80%;
+       
+        @media ${device.tablet}{
+           width: 100%;
+           left: 0; 
+        }
+  
         z-index: 200;
         overflow: hidden;
         transition: transform 300ms 0s , visibility 0s 300ms , width 300ms 0s ;
@@ -31,6 +38,11 @@ export const Body = styled(RowCenter)`
         color: white;
         height: 100%;
         width: 100%;
+
+        @media ${device.mobileL} {
+            height: 50%;
+
+        }
         border-radius: 0px 0px 5px 5px;
     `
 
@@ -73,13 +85,13 @@ export const RedCircle = styled(Circle)`
     `
 
 
-function _getTransform(animationState){
-    switch(animationState){
+function _getTransform(animationState) {
+    switch (animationState) {
         case AnimationState.Forward:
             return `translatey(100vh) translatex(70vw)`
         case AnimationState.Reverse:
             return `translatey(calc(${marginTopPixels}px -100vh)) translatex(-70vw)`
-        default: 
+        default:
             return null;
     }
 }

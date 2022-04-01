@@ -1,11 +1,18 @@
 import styled from "styled-components"
 import { ColumnCenter } from '../styled_foundations/layout'
+import { pixelSizes, WhiteSpaceMd } from "../styled_foundations/spacing"
+import { device } from "../utility/display"
 import Icon from './Icon'
 
 
 
 const StyledCard = styled.div`
   display:flex;
+
+  @media ${device.tablet}{
+    flex-direction: column; 
+    align-items: center;
+  }
   border:none;
   border-radius: 8px;
   background-color: white;
@@ -18,6 +25,13 @@ const StyledCard = styled.div`
 
 const Left = styled.div`
   width:${props=> props.width};
+  @media ${device.tablet} {
+    width: 100%;
+    display: flex;
+    column-gap: 10px; 
+    justify-content: center;
+    margin-bottom: ${pixelSizes.s};
+  }
   border-radius: 8px 0px 0px 8px;
 `
 
@@ -26,6 +40,10 @@ const Right = styled.div`
   width:${props=> props.width};
   border-radius: 0px 8px 8px 0px;
   padding: 30px;
+  @media ${device.tablet}{
+    width: 100%; 
+    padding: 5px;
+  }
 `
 
 export default function Card(props) {
@@ -50,10 +68,12 @@ export default function Card(props) {
 const IconsContainer = styled(ColumnCenter)`
   padding: 30px 0px;
 
-`
+  @media ${device.tablet}{
+    padding: 15px 0px;
+    flex-direction: row;
+    width: 100%; 
+  }
 
-const IconSpacing = styled.div`
-  height: 20px;
 `
 
 export function IconsCard(props) {
@@ -63,7 +83,7 @@ export function IconsCard(props) {
 
     {props.assets
       .map((asset) => <Icon key={asset} height={100} width={100} asset={asset} />)
-      .flatMap((icon, i) => [icon, <IconSpacing key={i} />])
+      .flatMap((icon, i) => [icon, <WhiteSpaceMd key={i} />])
     }
   </IconsContainer>
 

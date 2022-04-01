@@ -7,6 +7,7 @@ import { WhiteSpaceLg } from "../styled_foundations/spacing";
 import { H3 } from "../styled_foundations/text";
 import { currAge, yearsExp } from "../utility/age_calculator";
 import me from "../assets/pngs/me.png"
+import { device } from "../utility/display";
 
 
 const IconsContainer = styled(RowSpaceAround)`
@@ -16,10 +17,15 @@ const IconsContainer = styled(RowSpaceAround)`
 
 const StyledImg = styled.img`
     max-width: 100%; 
+    @media ${device.tablet}{
+        max-width: 250px; 
+        align-self: center;
+        
+    }
 `
 export default function AboutMe({ innerRef }) {
 
-    const left = <StyledImg src={me }/>
+    const left = <StyledImg src={me} />
     return <Section title='About me' innerRef={innerRef} >
 
         <Card left={left} imageBackground>
@@ -39,11 +45,15 @@ export default function AboutMe({ innerRef }) {
 
                 <H3>Contact info:</H3>
                 <WhiteSpaceLg/>
-                <IconText asset="telephone"></IconText>
-                <p>305 260 1208</p>
+                <Row>
+                    <IconText asset="telephone"></IconText>
+                    <p>305 260 1208</p>
+                </Row>
                 <WhiteSpaceLg/>
-                <IconText asset="email"></IconText>
-                <p>jp.campos99@hotmail.com</p>
+                <Row>
+                    <IconText asset="email"></IconText>
+                    <p>jp.campos99@hotmail.com</p>
+                </Row>
 
             </Row>
 
