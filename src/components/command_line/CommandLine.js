@@ -3,8 +3,19 @@ import { ColumnCenter } from "../../styled_foundations/layout"
 import IconText from "../IconText"
 import { NAV_ITEM_LABELS } from "../nav_bar/constants";
 import { AnimationState } from "./constants"
-import { Body, CircleContainer, Container, GreenCircle, Header, RedCircle, YellowCircle } from "./styles";
+import { Body, CircleContainer, Container, GreenCircle, Header, RedCircle, YellowCircle } from "./command_line_styles";
 import Typewriter from 'typewriter-effect';
+import styled from 'styled-components';
+
+
+
+
+
+const CodeTitle = styled.h1`
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  font-size: clamp(2.0rem, 6vw, 3.8rem);
+`
 
 export default function CommandLine({ scrollPosition, minimizedCallback, scrollTo }) {
 
@@ -32,8 +43,6 @@ export default function CommandLine({ scrollPosition, minimizedCallback, scrollT
     }, [bodyRef, animationState, scrollPosition, minimizedCallback])
 
 
-
-
     return <Container height={scrollPosition} state={animationState}>
         <Header>
             <CircleContainer>
@@ -45,7 +54,7 @@ export default function CommandLine({ scrollPosition, minimizedCallback, scrollT
         </Header>
         <Body ref={bodyRef} >
             <ColumnCenter>
-                <h1>Juan Pablo Campos</h1>
+                <CodeTitle>Juan Pablo Campos</CodeTitle>
                 <Typewriter
                     options={{
                         strings: ['Software Engineer', 'Front End Developer', 'Back End Developer'],

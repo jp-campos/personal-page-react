@@ -37,8 +37,8 @@ export default function AboutMe({ innerRef }) {
 
             <p>
                 I am a {currAge()} years old Systems and Computing engineer  from the University of the Andes with {yearsExp()} of experience.
-                I am fluent in English and Spanish with strong verbal, written and listening skills to communicate with both programmers and managers.
-                I enjoy coding to solve challeging problems. Other things I enjoy are going outdoors, climbing, and ultimate frisbee.
+                I am fluent in English and Spanish with strong verbal, written and listening skills which I use to efficently communicate with both programmers and managers.
+                I enjoy coding to improve and add value to the lifes of people. In my free time I enjoy going outdoors, climbing, and ultimate frisbee.
             </p>
 
             <Row>

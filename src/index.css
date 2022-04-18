@@ -19,18 +19,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 .code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-  font-size: 18px;
+  font-size:clamp(2.0rem, 4.5vw, 3.0rem);
 }
-
-
-
-
-
-
-
 
 .about-container{
   width: 100%;

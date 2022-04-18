@@ -1,3 +1,14 @@
+
+export const sizeNumbers = {
+  mobileS: 320,
+  mobileM: 375,
+  mobileL: 425,
+  tablet: 768,
+  laptop: 1024,
+  laptopL: 1440,
+  desktop: 2560
+}
+
 const size = {
     mobileS: '320px',
     mobileM: '375px',
@@ -7,6 +18,8 @@ const size = {
     laptopL: '1440px',
     desktop: '2560px'
   }
+
+
 
 export const device = {
     mobileS: `(max-width: ${size.mobileS})`,
@@ -18,4 +31,6 @@ export const device = {
     desktop: `(max-width: ${size.desktop})`,
     desktopL: `(max-width: ${size.desktop})`
   };
+
+
 

@@ -14,7 +14,6 @@ const TabContainer = styled(RowSpaceAround)`
 `
 
 const InnerRow = styled(Row)`
-
     cursor: pointer;
 `
 
@@ -57,7 +56,7 @@ export default function Tab(props) {
     const leftChildRef = useRef()
     const rightChildRef = useRef()
   
-   const selectorRef = useRef()
+    const selectorRef = useRef()
     const leftRef = useRef()
     const rightRef = useRef()
     const leftTextRef = useRef()

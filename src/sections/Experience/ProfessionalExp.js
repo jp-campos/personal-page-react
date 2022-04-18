@@ -47,9 +47,9 @@ export default function ProfessionalExp(){
             <Tag color={colors.frontEndTagBg}>Front-End</Tag>
             <Tag color={colors.backEndTagBg}>Back-End</Tag>
             <TextJustify>
-                 <p>I worked with Colombia's biggest bank on their finantial inclusion product "Bancolombia a la mano". 
+                 <p>I worked with Colombia's biggest bank on their financial inclusion product "Bancolombia a la mano". 
                 During this time I also contributed in a digital transformation project called "Galatea". This project's main purpose 
-                was to increase code reusability between finantial products and promote good programming/architectural practices. 
+                was to increase code reusability between financial products and promote good programming/architectural practices. 
                 </p>
                 <p>
                     I tackled tasks on both front end and backend. The front end was developed in Flutter and the backend in reactive Springboot. 

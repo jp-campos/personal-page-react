@@ -5,7 +5,9 @@ import colors from "../../styled_foundations/colors"
 import NavItem from "./NavItem"
 import { useRef, useEffect } from "react"
 import { NAV_ITEM_LABELS } from "./constants"
-
+import useWindowDimensions from "./../../hooks/use_window_dimensions"
+import { sizeNumbers } from "./../../utility/display"
+import { ReactComponent as MenuIcon } from "./../../assets/svgs/hamburguer.svg"
 const LanguagesContainer = styled(Row)`
     position: absolute;
     top: 10px;
@@ -23,7 +25,6 @@ const LanguageBtn = styled.div`
         padding: 4px; 
     }
 `
-
 
 const StyledNavBar = styled.nav.attrs(props => ({
     style: {
@@ -67,7 +68,10 @@ const NavItemSelector = styled.div`
         z-index: 48; 
         transition: left 0.4s, width 0.4s;
 `
-
+const MenuIconContainer = styled(Row)`
+    align-items: center;
+    height: 100%;
+`
 
 export default function NavBar({ scrollPosition, showNavItems, currSection, scrollTo }) {
 
@@ -76,47 +80,54 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
     const itemSelectorRef = useRef()
     const itemsContainerRef = useRef()
     const currRef = useRef()
-   
+
+    const { width } = useWindowDimensions()
 
     useEffect(() => {
 
-        function setSelector(navItemLabel){
-            if(showNavItems){
-                let navItemSelectorEl = itemSelectorRef.current
-                currRef.current = refs.current[navItemLabel]
-    
-                navItemSelectorEl.style.left = `${currRef.current.offsetLeft - 4}px`
-                navItemSelectorEl.style.width = `${currRef.current.offsetWidth + 8}px`
+        if (width > sizeNumbers.tablet) {
+            function setSelector(navItemLabel) {
+                if (showNavItems) {
+                    let navItemSelectorEl = itemSelectorRef.current
+                    currRef.current = refs.current[navItemLabel]
+
+                    navItemSelectorEl.style.left = `${currRef.current.offsetLeft - 4}px`
+                    navItemSelectorEl.style.width = `${currRef.current.offsetWidth + 8}px`
+                }
+
             }
-    
+
+            if (typeof currSection !== 'undefined') {
+                setSelector(currSection)
+            }
         }
+    }, [currSection, showNavItems, width])
 
-        if(typeof currSection !== 'undefined'){
-             setSelector(currSection)      
-        }
-        
-       
-    }, [currSection, showNavItems])
 
-   
-
-   function  onItemClick  (navItemLabel)  {
+    function onItemClick(navItemLabel) {
         scrollTo(navItemLabel)
     }
 
-    
+
+    const mobileNavBar =  showNavItems && <MenuIconContainer>
+                            <MenuIcon height="40px" width="40px" fill="white" />
+                        </MenuIconContainer>
+
+    const desktopNavBar = showNavItems &&
+        <NavItemsContainer ref={itemsContainerRef} >
+            <NavItemSelector ref={itemSelectorRef} />
+            <NavItem onClick={() => onItemClick(NAV_ITEM_LABELS.aboutMe)} innerRef={e => refs.current[NAV_ITEM_LABELS.aboutMe] = e}>About me</NavItem>
+            <NavItem onClick={() => onItemClick(NAV_ITEM_LABELS.skills)} innerRef={e => refs.current[NAV_ITEM_LABELS.skills] = e}>Skills</NavItem>
+            <NavItem onClick={() => onItemClick(NAV_ITEM_LABELS.exp)} innerRef={e => refs.current[NAV_ITEM_LABELS.exp] = e}>Experience</NavItem>
+            <NavItem onClick={() => onItemClick(NAV_ITEM_LABELS.certs)} innerRef={e => refs.current[NAV_ITEM_LABELS.certs] = e}>Certifications</NavItem>
+        </NavItemsContainer>
+
+    const navBar = width <= sizeNumbers.tablet ? mobileNavBar : desktopNavBar;
+
+
     return <StyledNavBar height={scrollPosition}>
 
-        {showNavItems &&
-            <NavItemsContainer ref={itemsContainerRef} >
-                <NavItemSelector ref={itemSelectorRef}/>
-                <NavItem  onClick={()=>onItemClick(NAV_ITEM_LABELS.aboutMe)}  innerRef={e => refs.current[NAV_ITEM_LABELS.aboutMe] = e}>About me</NavItem>
-                <NavItem onClick={()=>onItemClick(NAV_ITEM_LABELS.skills)}  innerRef={e => refs.current[NAV_ITEM_LABELS.skills] = e}>Skills</NavItem>
-                <NavItem onClick={()=>onItemClick(NAV_ITEM_LABELS.exp)} innerRef={e => refs.current[NAV_ITEM_LABELS.exp] = e}>Experience</NavItem>
-                <NavItem onClick={()=>onItemClick(NAV_ITEM_LABELS.certs)} innerRef={e=> refs.current[NAV_ITEM_LABELS.certs] = e}>Certifications</NavItem>
-            </NavItemsContainer>
-
-        }
+        {navBar}
 
         <LanguagesContainer>
             <LanguageBtn>
@@ -127,8 +138,9 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
                 <IconText asset='english'>EN</IconText>
             </LanguageBtn>
         </LanguagesContainer>
-
     </StyledNavBar>
 }
+
+
 
 
