@@ -31,7 +31,7 @@ const StyledNavBar = styled.nav.attrs(props => ({
         height: `calc(50% - ${props.height}px)`
     }
 }))`
-      background: rgb(43,51,244);
+        background: rgb(43,51,244);
         background: linear-gradient(180deg, rgba(43,51,244,1) 0%, rgba(30,5,126,1) 100%);   
         position: fixed;
         left: 0px;
@@ -81,6 +81,7 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
     const itemsContainerRef = useRef()
     const currRef = useRef()
 
+
     const { width } = useWindowDimensions()
 
     useEffect(() => {
@@ -120,6 +121,7 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
             <NavItem onClick={() => onItemClick(NAV_ITEM_LABELS.skills)} innerRef={e => refs.current[NAV_ITEM_LABELS.skills] = e}>Skills</NavItem>
             <NavItem onClick={() => onItemClick(NAV_ITEM_LABELS.exp)} innerRef={e => refs.current[NAV_ITEM_LABELS.exp] = e}>Experience</NavItem>
             <NavItem onClick={() => onItemClick(NAV_ITEM_LABELS.certs)} innerRef={e => refs.current[NAV_ITEM_LABELS.certs] = e}>Certifications</NavItem>
+            <NavItem onClick={() => onItemClick(NAV_ITEM_LABELS.contactMe)} innerRef={e => refs.current[NAV_ITEM_LABELS.contactMe] = e}>Contact me</NavItem>
         </NavItemsContainer>
 
     const navBar = width <= sizeNumbers.tablet ? mobileNavBar : desktopNavBar;

@@ -38,7 +38,7 @@ export default function CommandLine({ scrollPosition, minimizedCallback, scrollT
         if (bodyRef.current.clientHeight < bodyRef.current.scrollHeight && animationState === AnimationState.Initial) {
             setAnimationState(AnimationState.Forward)
             setScrollAnimationPos(scrollPosition)
-            minimizedCallback(true)
+            minimizedCallback(true, scrollPosition)
         }
     }, [bodyRef, animationState, scrollPosition, minimizedCallback])
 

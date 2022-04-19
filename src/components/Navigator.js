@@ -1,15 +1,23 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import Hero from "./Hero"
 
 
 export default function Navigator({ sectionRefs, children }) {
 
-    const [scrollPosition, setScrollPosition] = useState(0)
+    const [childScroll, setChildScroll] = useState(0)
     const [currSection, setCurrSection] = useState()
-
+    const minimizedObj = useRef({isMinimized: false, minimizedPos: null })
+    const _minimizedCallBack = (isMinimized,pos) => {
+        minimizedObj.current.minimizedPos = pos
+        minimizedObj.current.isMinimized = isMinimized
+    }
     useEffect(() => {
         const handleScroll = (_) => {
-            setScrollPosition(window.scrollY)
+            //Change scroll position only when hero hasnt been minimized or 
+            // when it is at the point where the commandline was minimized
+            if(!minimizedObj.current.isMinimized || window.scrollY < minimizedObj.current.minimizedPos){    
+                setChildScroll(window.scrollY)
+            }   
             setCurrSection( _getCurrSectionKey()) 
         }
 
@@ -40,7 +48,7 @@ export default function Navigator({ sectionRefs, children }) {
 
 
     return <>
-        <Hero currSection={currSection} scrollPosition={scrollPosition} scrollTo={scrollTo}></Hero>
+        <Hero minimizedCallback={_minimizedCallBack} isMinimized={minimizedObj.current.isMinimized} currSection={currSection} scrollPosition={childScroll} scrollTo={scrollTo}></Hero>
         {children}
     </>
 }

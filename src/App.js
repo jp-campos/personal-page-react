@@ -6,6 +6,8 @@ import Experience from './sections/Experience/Experience';
 import Navigator from './components/Navigator.js';
 import { NAV_ITEM_LABELS } from './components/nav_bar/constants.js';
 import Certifications from './sections/Certifications.js';
+import ContactMe from './sections/ContactMe.js';
+
 import Footer from './sections/Footer.js';
 import { WhiteSpaceLg } from './styled_foundations/spacing.js';
 import { device } from './utility/display.js';
@@ -42,6 +44,8 @@ function App() {
         <Skills innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.skills] = e} />
         <Experience innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.exp] = e} />
         <Certifications innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.certs] = e} />
+        <ContactMe innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.contactMe] = e} />
+
       </Body>
       <WhiteSpaceLg/>
       <Footer/>

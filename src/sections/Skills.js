@@ -23,8 +23,6 @@ const FlexContainer = styled(RowCenter)`
 
 const SearchBarLabel = styled(H2)`
     color: ${colors.active}; 
-
-
 `
 export default function Skills({ innerRef }) {
 

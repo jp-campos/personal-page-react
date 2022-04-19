@@ -36,7 +36,9 @@ export const TextJustify = styled.span`
  text-align: justify;
   text-justify: inter-word;
 `
-
+export const ErrorText = styled.span`
+  color: ${colors.error}
+`
 export const NewPageLink = (props) => <Link href={props.href} fontSize={props.fontSize} target="_blank">{props.children}</Link>
 
     
