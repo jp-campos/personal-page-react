@@ -25,7 +25,8 @@ export default function Experience({ innerRef }) {
 
     const icon = <Icon width="100px" height="100px"/>
 
-    return <Section icon={icon} title="Experience" innerRef={innerRef}>
+    const separatorColors = ['#E8C6EC', '#8A6FF7']
+    return <Section icon={icon} title="Experience" innerRef={innerRef} separatorColors={separatorColors}>
 
         <Tab leftIcon={leftIcon} 
             leftText={leftText} 

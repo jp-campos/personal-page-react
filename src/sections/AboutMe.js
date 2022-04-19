@@ -26,6 +26,7 @@ const StyledImg = styled.img`
 export default function AboutMe({ innerRef }) {
 
     const left = <StyledImg src={me} />
+    
     return <Section title='About me' innerRef={innerRef} >
 
         <Card left={left} imageBackground>

@@ -36,7 +36,7 @@ const BodyInput = styled.textarea`
 
 export default function ContactMe(props) {
 
-    const icon = <Icon width="160px" height="100px" />
+    const icon = <Icon width="100px" height="100px" />
     const [isMailValid, setIsMailValid] = useState(true)
     const [mailObj, setMailObj] = useState({ "from": null, "body": null })
 
@@ -57,13 +57,13 @@ export default function ContactMe(props) {
         let temp = { ...mailObj, 'from': e.target.value }
 
         let isValid = validateMail(temp)
-        if(isValid && isValid !== isMailValid){
+        if (isValid && isValid !== isMailValid) {
             setIsMailValid(isValid)
         }
     }
 
-    const handleBodyChange = (e) =>{
-        let temp ={...mailObj, 'body': e.target.value}
+    const handleBodyChange = (e) => {
+        let temp = { ...mailObj, 'body': e.target.value }
         setMailObj(temp)
     }
 
@@ -89,14 +89,22 @@ export default function ContactMe(props) {
             progress: undefined,
         });
     }
-    const handleSubmit = async ()=>{
-        try{
-            await httpClient.sendMail(mailObj)
-            successToast('Email has been sent')
+    const handleSubmit = async () => {
+
+        let mailValid = validateMail(mailObj.from);
+        if (mailValid) {
+
+            try {
+                await httpClient.sendMail(mailObj)
+                successToast('Email has been sent')
+            }
+            catch (e) {
+                failureToast()
+            }
+        } else {
+            setIsMailValid(false)
         }
-        catch(e){
-            failureToast()
-        }
+
     }
 
     return <Section icon={icon} title="Let's keep in touch!" innerRef={props.innerRef}>
@@ -105,7 +113,7 @@ export default function ContactMe(props) {
         <WhiteSpaceMd />
         <Row>
             <FromInput onBlur={handleMailBlur} onInput={handleMailChange} placeholder="Your email" />
-            <WhiteSpaceSm/>
+            <WhiteSpaceSm />
             {!isMailValid && <ErrorText>Please enter a valid email</ErrorText>}
         </Row>
         <WhiteSpaceSm />

@@ -23,7 +23,9 @@ const links = {
 const Certifications = ({ innerRef }) => {
 
     const icon = <Icon width="160px" height="100px"/>
-    return <Section icon={icon} title="Certifications and Courses" innerRef={innerRef}>
+
+    const separatorColors = ['#F84661', '#FF9900']
+    return <Section icon={icon} title="Certifications and Courses" innerRef={innerRef} separatorColors={separatorColors}>
         
         <H2>Go courses</H2>
         <WhiteSpaceSm/>

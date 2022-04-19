@@ -33,7 +33,8 @@ export default function Skills({ innerRef }) {
 
     const icon = <Icon asset="books" width="130px" height="50px" />
 
-    return <Section icon={icon} title="Skills" innerRef={innerRef} >
+    const separatorColors = ['#F71F68','#FBAA89']
+    return <Section icon={icon} title="Skills" innerRef={innerRef} separatorColors={separatorColors}>
 
         <Tab leftIcon={leftIcon}
             leftText={leftText}

@@ -126,7 +126,6 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
 
     const navBar = width <= sizeNumbers.tablet ? mobileNavBar : desktopNavBar;
 
-
     return <StyledNavBar height={scrollPosition}>
 
         {navBar}

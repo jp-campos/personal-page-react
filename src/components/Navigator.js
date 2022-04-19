@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState, useReducer } from "react"
 import Hero from "./Hero"
 
 
@@ -6,16 +6,18 @@ export default function Navigator({ sectionRefs, children }) {
 
     const [childScroll, setChildScroll] = useState(0)
     const [currSection, setCurrSection] = useState()
-    const minimizedObj = useRef({isMinimized: false, minimizedPos: null })
-    const _minimizedCallBack = (isMinimized,pos) => {
-        minimizedObj.current.minimizedPos = pos
-        minimizedObj.current.isMinimized = isMinimized
+
+    const minimizedReducer = (state, action)=>({isMinimized: !state.isMinimized, minimizedPos: action})
+    const [minimizedObj, dispatch] = useReducer(minimizedReducer, {isMinimized: false, minimizedPos: null })
+
+    const _minimizedCallBack = (_,pos) => {
+        dispatch(pos)
     }
     useEffect(() => {
         const handleScroll = (_) => {
-            //Change scroll position only when hero hasnt been minimized or 
-            // when it is at the point where the commandline was minimized
-            if(!minimizedObj.current.isMinimized || window.scrollY < minimizedObj.current.minimizedPos){    
+            //Change scroll position only when hero hasnt been minimized (for its height to change) or 
+            // when it is at the point where the commandline was minimized (to trigger the maximize animation)
+            if(!minimizedObj.isMinimized || window.scrollY < minimizedObj.minimizedPos){    
                 setChildScroll(window.scrollY)
             }   
             setCurrSection( _getCurrSectionKey()) 
@@ -39,7 +41,7 @@ export default function Navigator({ sectionRefs, children }) {
         }
         window.addEventListener('scroll', handleScroll, { passive: true })
         return () => window.removeEventListener('scroll', handleScroll)
-    }, [sectionRefs])
+    }, [sectionRefs, minimizedObj])
     
 
     const scrollTo = async (section) => {
@@ -48,7 +50,7 @@ export default function Navigator({ sectionRefs, children }) {
 
 
     return <>
-        <Hero minimizedCallback={_minimizedCallBack} isMinimized={minimizedObj.current.isMinimized} currSection={currSection} scrollPosition={childScroll} scrollTo={scrollTo}></Hero>
+        <Hero minimizedCallback={_minimizedCallBack} isMinimized={minimizedObj.isMinimized} currSection={currSection} scrollPosition={childScroll} scrollTo={scrollTo}></Hero>
         {children}
     </>
 }

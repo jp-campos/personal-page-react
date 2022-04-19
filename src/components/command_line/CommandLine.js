@@ -29,7 +29,7 @@ export default function CommandLine({ scrollPosition, minimizedCallback, scrollT
     useEffect(() => {
         if (scrollPosition < scrollAnimationPos && animationState === AnimationState.Forward) {
             setAnimationState(AnimationState.Reverse);
-            minimizedCallback(false)
+            minimizedCallback(false, null)
             setTimeout(() => { setAnimationState(AnimationState.Initial) }, 200)
         }
     }, [scrollPosition, animationState, scrollAnimationPos, minimizedCallback])
