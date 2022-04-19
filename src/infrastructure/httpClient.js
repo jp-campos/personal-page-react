@@ -10,10 +10,12 @@ const getSkills = async (skill)=> {
 
 const postSkill = async (skill) => await axios.post(`${baseUrl}/skill`, {"skill": skill})
    
+const sendMail = async (mail)=> await axios.post(`${baseUrl}/email`, mail)
 const httpClient = {
 
     getSkills: getSkills, 
-    postSkill: postSkill
+    postSkill: postSkill,
+    sendMail: sendMail
 
 }
 
