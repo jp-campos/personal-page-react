@@ -16,7 +16,7 @@ const Body = styled.div`
  padding-left: 50px; 
   padding-right: 50px;
   @media ${device.tablet} {
-    padding-left: 5px; 
+    padding-left: 10px; 
   padding-right: 5px;
   }
    
@@ -40,11 +40,11 @@ function App() {
       <Body>
         <HeroWhiteSpace />
 
-        <AboutMe innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.aboutMe] = e} />
-        <Skills innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.skills] = e} />
-        <Experience innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.exp] = e} />
-        <Certifications innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.certs] = e} />
-        <ContactMe innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.contactMe] = e} />
+        <AboutMe innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.aboutMe] = e} sectionKey={NAV_ITEM_LABELS.aboutMe}/>
+        <Skills innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.skills] = e} sectionKey={NAV_ITEM_LABELS.skills}/>
+        <Experience innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.exp] = e} sectionKey={NAV_ITEM_LABELS.exp}/>
+        <Certifications innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.certs] = e} sectionKey={NAV_ITEM_LABELS.certs}/>
+        <ContactMe innerRef={e => sectionRefs.current[NAV_ITEM_LABELS.contactMe] = e} sectionKey={NAV_ITEM_LABELS.contactMe}/>
 
       </Body>
       <WhiteSpaceLg/>

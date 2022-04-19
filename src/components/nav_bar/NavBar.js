@@ -6,7 +6,7 @@ import NavItem from "./NavItem"
 import { useRef, useEffect } from "react"
 import { NAV_ITEM_LABELS } from "./constants"
 import useWindowDimensions from "./../../hooks/use_window_dimensions"
-import { sizeNumbers } from "./../../utility/display"
+import { device, sizeNumbers } from "./../../utility/display"
 import { ReactComponent as MenuIcon } from "./../../assets/svgs/hamburguer.svg"
 const LanguagesContainer = styled(Row)`
     position: absolute;
@@ -38,6 +38,9 @@ const StyledNavBar = styled.nav.attrs(props => ({
         top: 0px;
         width: 100%;
         min-height: 60px; 
+        @media ${device.tablet} {
+            max-height: 60px;
+        }
         z-index: 50;
 `
 

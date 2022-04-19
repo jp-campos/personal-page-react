@@ -1,8 +1,11 @@
 import React, { useEffect, useState, useReducer } from "react"
+import { CurrSectionContext } from "../context/curr_section_context"
 import Hero from "./Hero"
 
 
 export default function Navigator({ sectionRefs, children }) {
+
+    
 
     const [childScroll, setChildScroll] = useState(0)
     const [currSection, setCurrSection] = useState()
@@ -49,8 +52,8 @@ export default function Navigator({ sectionRefs, children }) {
     }
 
 
-    return <>
+    return <CurrSectionContext.Provider value={currSection}>
         <Hero minimizedCallback={_minimizedCallBack} isMinimized={minimizedObj.isMinimized} currSection={currSection} scrollPosition={childScroll} scrollTo={scrollTo}></Hero>
         {children}
-    </>
+    </CurrSectionContext.Provider>
 }

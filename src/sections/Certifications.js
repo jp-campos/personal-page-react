@@ -20,12 +20,12 @@ const links = {
 
 
 
-const Certifications = ({ innerRef }) => {
+const Certifications = ({ innerRef,sectionKey }) => {
 
     const icon = <Icon width="160px" height="100px"/>
 
     const separatorColors = ['#F84661', '#FF9900']
-    return <Section icon={icon} title="Certifications and Courses" innerRef={innerRef} separatorColors={separatorColors}>
+    return <Section icon={icon} title="Certifications and Courses" innerRef={innerRef} separatorColors={separatorColors} sectionKey={sectionKey}>
         
         <H2>Go courses</H2>
         <WhiteSpaceSm/>

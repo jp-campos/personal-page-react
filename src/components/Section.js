@@ -2,6 +2,10 @@ import styled from "styled-components"
 import { RowCenter } from "../styled_foundations/layout"
 import { H1 } from "../styled_foundations/text"
 import { WhiteSpaceMd } from "../styled_foundations/spacing"
+import { useContext, useEffect, useState } from "react"
+import { CurrSectionContext } from "../context/curr_section_context"
+import useWindowDimensions from "../hooks/use_window_dimensions"
+import { sizeNumbers } from "../utility/display"
 
 const StyledSection = styled.div`
 margin-top: 100px;
@@ -30,19 +34,28 @@ const Separator = styled.div`
     `
 
 const Gradient = styled.div`
-
     background: ${props => `radial-gradient(circle at center,${props.colors[0]},${props.colors[1]})`};    
-    width: 100vw;
+    width: ${props => props.active ? '100vw' : '0px'};
+    transition: width 400ms ease 200ms;
     height: 40vw;
 `
 
+export default function Section({ children, icon, title, innerRef, separatorColors, sectionKey}) {
 
-
-export default function Section({ children, icon, title, innerRef, separatorColors }) {
+    const [active, setActive] = useState(false)
+    const currSection = useContext(CurrSectionContext)
+    const {width} = useWindowDimensions(); 
+    useEffect(() => {
+        if (currSection === sectionKey) {
+            setActive(true)
+        } else {
+            setActive(false)
+        }
+    }, [currSection, sectionKey])
 
     let separator = typeof separatorColors !== 'undefined' ?
         <Separator >
-            <Gradient colors={separatorColors} />
+            <Gradient colors={separatorColors} active={active} />
         </Separator> : <></>
 
     return <>
@@ -55,7 +68,7 @@ export default function Section({ children, icon, title, innerRef, separatorColo
 
                         <H1>{title}</H1>
                         <WhiteSpaceMd />
-                        {icon}
+                        {width > sizeNumbers.tablet  && icon}
                     </UnSkewContainer>
 
                 </TitleContainer>

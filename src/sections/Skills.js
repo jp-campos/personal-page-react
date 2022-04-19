@@ -24,7 +24,7 @@ const FlexContainer = styled(RowCenter)`
 const SearchBarLabel = styled(H2)`
     color: ${colors.active}; 
 `
-export default function Skills({ innerRef }) {
+export default function Skills({ innerRef, sectionKey }) {
 
     const leftIcon = <SettingsSvg height="20px" width="20px" />
     const leftText = "Tech"
@@ -33,8 +33,10 @@ export default function Skills({ innerRef }) {
 
     const icon = <Icon asset="books" width="130px" height="50px" />
 
+
+
     const separatorColors = ['#F71F68','#FBAA89']
-    return <Section icon={icon} title="Skills" innerRef={innerRef} separatorColors={separatorColors}>
+    return <Section icon={icon} title="Skills" innerRef={innerRef} separatorColors={separatorColors} sectionKey={sectionKey}>
 
         <Tab leftIcon={leftIcon}
             leftText={leftText}

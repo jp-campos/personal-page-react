@@ -14,7 +14,7 @@ import PersonalExp from "./PersonalExp";
 
 
 
-export default function Experience({ innerRef }) {
+export default function Experience({ innerRef, sectionKey }) {
 
 
     const leftIcon = <BriefCase width="20px" height="20px"/>
@@ -26,7 +26,7 @@ export default function Experience({ innerRef }) {
     const icon = <Icon width="100px" height="100px"/>
 
     const separatorColors = ['#E8C6EC', '#8A6FF7']
-    return <Section icon={icon} title="Experience" innerRef={innerRef} separatorColors={separatorColors}>
+    return <Section icon={icon} title="Experience" innerRef={innerRef} separatorColors={separatorColors} sectionKey={sectionKey}>
 
         <Tab leftIcon={leftIcon} 
             leftText={leftText} 

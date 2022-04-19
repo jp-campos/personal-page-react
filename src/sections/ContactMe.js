@@ -34,39 +34,38 @@ const BodyInput = styled.textarea`
    border: none;
 `
 
-export default function ContactMe(props) {
+export default function ContactMe({innerRef, sectionKey}) {
 
-    const icon = <Icon width="100px" height="100px" />
     const [isMailValid, setIsMailValid] = useState(true)
     const [mailObj, setMailObj] = useState({ "from": null, "body": null })
-
+    
     const validateMail = (mail) => {
         let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         return mail.from.match(regex) !== null
-
+        
     }
-
+    
     const handleMailBlur = (e) => {
         let temp = { ...mailObj, 'from': e.target.value }
         setMailObj(temp)
         let isValid = validateMail(temp)
         setIsMailValid(isValid)
     }
-
+    
     const handleMailChange = (e) => {
         let temp = { ...mailObj, 'from': e.target.value }
-
+        
         let isValid = validateMail(temp)
         if (isValid && isValid !== isMailValid) {
             setIsMailValid(isValid)
         }
     }
-
+    
     const handleBodyChange = (e) => {
         let temp = { ...mailObj, 'body': e.target.value }
         setMailObj(temp)
     }
-
+    
     const successToast = (msg) => {
         toast.success(msg, {
             position: "bottom-right",
@@ -90,10 +89,9 @@ export default function ContactMe(props) {
         });
     }
     const handleSubmit = async () => {
-
+        
         let mailValid = validateMail(mailObj.from);
         if (mailValid) {
-
             try {
                 await httpClient.sendMail(mailObj)
                 successToast('Email has been sent')
@@ -104,10 +102,11 @@ export default function ContactMe(props) {
         } else {
             setIsMailValid(false)
         }
-
     }
 
-    return <Section icon={icon} title="Let's keep in touch!" innerRef={props.innerRef}>
+    const icon = <Icon width="100px" height="100px" />
+    const separatorColors = ['#F84661','#CD93D5' ]
+    return <Section icon={icon} title="Let's keep in touch!" innerRef={innerRef} sectionKey={sectionKey} separatorColors={separatorColors}>
         <WhiteSpaceLg />
         <SectionLabel>Tell me how I could help your company</SectionLabel>
         <WhiteSpaceMd />

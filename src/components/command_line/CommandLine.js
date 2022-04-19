@@ -12,9 +12,8 @@ import styled from 'styled-components';
 
 
 const CodeTitle = styled.h1`
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-  font-size: clamp(2.0rem, 6vw, 3.8rem);
+    font-family: 'Do Hyeon', sans-serif, monospace;
+  font-size: clamp(3.0rem, 6vw, 3.8rem);
 `
 
 export default function CommandLine({ scrollPosition, minimizedCallback, scrollTo }) {
