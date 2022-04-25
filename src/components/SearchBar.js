@@ -5,7 +5,7 @@ import httpClient from "../infrastructure/httpClient";
 import { pixelSizes, WhiteSpaceSm } from "../styled_foundations/spacing";
 import { Row } from "../styled_foundations/layout"
 import { AddBtn } from "../styled_foundations/buttons";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 
 const searchBarHeight = '46px'
@@ -134,17 +134,7 @@ export default function SearchBar() {
             </BtnContainer>
             {focused && <SearchItems loading={loading} onSelected={onSelected} data={data} />}
         </Container>
-        <ToastContainer
-            position="bottom-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-        />
+   
     </>
 }
 

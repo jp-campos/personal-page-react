@@ -107,6 +107,7 @@ export default function ContactMe({innerRef, sectionKey}) {
     const icon = <Icon width="100px" height="100px" />
     const separatorColors = ['#F84661','#CD93D5' ]
     return <Section icon={icon} title="Let's keep in touch!" innerRef={innerRef} sectionKey={sectionKey} separatorColors={separatorColors}>
+
         <WhiteSpaceLg />
         <SectionLabel>Tell me how I could help your company</SectionLabel>
         <WhiteSpaceMd />

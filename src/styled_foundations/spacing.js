@@ -39,3 +39,7 @@ export const DynamicWhiteSpace = styled.div`
     height: ${props => props.height};
     width: ${props=> props.width};
 `
+
+export const ExpandedWhiteSpace = styled.div`
+    flex-grow: 1; 
+`

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import AboutMe from './sections/AboutMe.js';
-import Skills from './sections/Skills.js';
+import Skills from './sections/skills/Skills.js';
 import { useRef } from 'react'
 import Experience from './sections/Experience/Experience';
 import Navigator from './components/Navigator.js';
@@ -11,6 +11,7 @@ import ContactMe from './sections/ContactMe.js';
 import Footer from './sections/Footer.js';
 import { WhiteSpaceLg } from './styled_foundations/spacing.js';
 import { device } from './utility/display.js';
+import { ToastContainer } from 'react-toastify';
 
 const Body = styled.div`
  padding-left: 50px; 
@@ -49,6 +50,17 @@ function App() {
       </Body>
       <WhiteSpaceLg/>
       <Footer/>
+      <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+        />
     </Navigator>
 
   )

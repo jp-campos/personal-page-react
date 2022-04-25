@@ -8,6 +8,7 @@ import { NAV_ITEM_LABELS } from "./constants"
 import useWindowDimensions from "./../../hooks/use_window_dimensions"
 import { device, sizeNumbers } from "./../../utility/display"
 import { ReactComponent as MenuIcon } from "./../../assets/svgs/hamburguer.svg"
+import { toast } from "react-toastify"
 const LanguagesContainer = styled(Row)`
     position: absolute;
     top: 10px;
@@ -98,15 +99,12 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
                     navItemSelectorEl.style.left = `${currRef.current.offsetLeft - 4}px`
                     navItemSelectorEl.style.width = `${currRef.current.offsetWidth + 8}px`
                 }
-
             }
-
             if (typeof currSection !== 'undefined') {
                 setSelector(currSection)
             }
         }
     }, [currSection, showNavItems, width])
-
 
     function onItemClick(navItemLabel) {
         scrollTo(navItemLabel)
@@ -127,13 +125,25 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
             <NavItem onClick={() => onItemClick(NAV_ITEM_LABELS.contactMe)} innerRef={e => refs.current[NAV_ITEM_LABELS.contactMe] = e}>Contact me</NavItem>
         </NavItemsContainer>
 
-    const navBar = width <= sizeNumbers.tablet ? mobileNavBar : desktopNavBar;
+    const navBar = width <= sizeNumbers.tablet ? mobileNavBar : desktopNavBar
+
+    const toDoToast = () => {
+        toast.info('This feature is coming soon!', {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
+}
 
     return <StyledNavBar height={scrollPosition}>
 
         {navBar}
 
-        <LanguagesContainer>
+        <LanguagesContainer onClick={()=> toDoToast()}>
             <LanguageBtn>
                 <IconText asset='spanish'>ES</IconText>
             </LanguageBtn>
@@ -142,6 +152,7 @@ export default function NavBar({ scrollPosition, showNavItems, currSection, scro
                 <IconText asset='english'>EN</IconText>
             </LanguageBtn>
         </LanguagesContainer>
+  
     </StyledNavBar>
 }
 
