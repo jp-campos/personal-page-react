@@ -48,7 +48,7 @@ export default function AboutMe({ innerRef }) {
                 <WhiteSpaceLg/>
                 <Row>
                     <IconText asset="telephone"></IconText>
-                    <p>305 260 1208</p>
+                    <p>+57 305 260 1208</p>
                 </Row>
                 <WhiteSpaceLg/>
                 <Row>

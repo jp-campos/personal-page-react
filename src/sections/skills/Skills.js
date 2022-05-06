@@ -25,7 +25,7 @@ export default function Skills({ innerRef, sectionKey }) {
     const rightText = "Soft"
 
     const icon = <Icon asset="books" width="130px" height="50px" />
-
+    
 
 
     const separatorColors = ['#F71F68', '#FBAA89']
