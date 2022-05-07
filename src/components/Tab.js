@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react"
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import colors from "../styled_foundations/colors"
 import { Row, RowSpaceAround } from "../styled_foundations/layout"
@@ -78,6 +78,10 @@ export default function Tab(props) {
 
         return () => window.removeEventListener('resize', setMaxHeightAndContainerWidth);
     }, [])
+
+    useEffect(()=>{
+        setMaxHeightAndContainerWidth()
+    }, [currPos])
 
  
 

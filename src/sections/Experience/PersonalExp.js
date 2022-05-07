@@ -11,8 +11,8 @@ import { useEffect } from "react";
 //const ciclapAnimate = "https://s1.gifyu.com/images/Grabacion-de-pantalla-2022-03-31-a-las-4.40.30-p.m-1.gif"
 const goAnimate = "https://s7.gifyu.com/images/go_animated.gif"
 const personalFront = "https://s7.gifyu.com/images/personal-front.gif"
-const ciclapAnimate = "https://s8.gifyu.com/images/ciclap_gif.md.gif"
-const faritaAnimate = "https://s8.gifyu.com/images/farita_gif.md.gif"
+const ciclapAnimate = "https://s8.gifyu.com/images/ciclap.gif"
+const faritaAnimate = "https://s8.gifyu.com/images/farita.gif"
 
 const projs = {
     go: {
@@ -40,7 +40,6 @@ const projs = {
 }
 
 
-
 const Container = styled(RowCenter)`
     row-gap: 60px;
     column-gap: 60px; 
@@ -53,8 +52,12 @@ export default function PersonalExp(){
 
     useEffect(()=>{
         const img = new Image();
+
         img.src = goAnimate;
-        img.src = personalPageFrontStatic;
+        img.src = personalFront;
+        img.src = ciclapAnimate;
+        img.src = faritaAnimate;
+
     }, [])
 
     const toImg = (img) => <Img src={img}/>
@@ -66,8 +69,8 @@ export default function PersonalExp(){
     the learning experience from this project. 
     " />
     <SquareCard topStatic={toImg(goStatic)} topAnimated={toImg(goAnimate)} link={projs.go.link} header="This Website's BackEnd" 
-    body="I applied what I learned through courses with the implementation
-    of this website's backEnd. 
+    body="I applied what I learned about go through courses with the implementation
+    of this website's back-end. 
     " />
      <SquareCard topStatic={toImg(ciclapStatic)} topAnimated={toImg(ciclapAnimate)} link={projs.ciclap.link} header="Ciclap" 
     body="App developed in Flutter. It was inteded to be a Google Maps for bikes. Offered directions that maximixed 
