@@ -25,17 +25,17 @@ const BotWrapper = styled.div`
 export default function SquareCard(props) {
     const [mouseOver, setMouseOver] = useState(false)
 
-    return <StyledCard onClick={props.onClick} onMouseEnter={() => setMouseOver(true)} onMouseLeave={() => setMouseOver(false)}>
+    return <a href={props.link}>
+        <StyledCard onClick={props.onClick} onMouseEnter={() => setMouseOver(true)} onMouseLeave={() => setMouseOver(false)}>
       
             {mouseOver ? props.topAnimated : props.topStatic}
        
         <BotWrapper>
-
             <H3>{props.header}</H3>
             <p>{props.body}</p>
-
         </BotWrapper>
 
 
     </StyledCard>
+        </a>
 }

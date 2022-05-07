@@ -65,7 +65,7 @@ const Certifications = ({ innerRef,sectionKey }) => {
         
 
             <Certification
-                size="1.3rem"
+                size="22px"
                 href={links.awsDevAssociate}
                 date="December 17, 2021"
                 issuer="AWS">
@@ -73,7 +73,7 @@ const Certifications = ({ innerRef,sectionKey }) => {
             </Certification>
             <WhiteSpaceSm />
             <Certification
-                size="1.3rem"
+                size="22px"
                 href={links.awsSecurity}
                 date="March 15, 2021"
                 issuer="AWS">
@@ -81,7 +81,7 @@ const Certifications = ({ innerRef,sectionKey }) => {
             </Certification>
             <WhiteSpaceSm />
             <Certification
-                size="1.3rem"
+                size="22px"
                 href={links.awsCloudNative}
                 date="February 3, 2021"
                 issuer="AWS">
