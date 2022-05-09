@@ -10,6 +10,7 @@ import { device } from "../../utility/display";
 
 
 
+
 const SoftSkillContainer = styled(Column)`
 width: 300px; 
 @media ${device.laptop}{
