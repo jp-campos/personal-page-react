@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { Row } from "../styled_foundations/layout"
 import { NewPageLink } from "../styled_foundations/text"
 import Icon from "./Icon"
+import React from 'react'
 
 
 

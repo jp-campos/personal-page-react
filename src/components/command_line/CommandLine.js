@@ -6,6 +6,7 @@ import { AnimationState } from "./constants"
 import { Body, CircleContainer, Container, GreenCircle, Header, RedCircle, YellowCircle } from "./command_line_styles";
 import Typewriter from 'typewriter-effect';
 import styled from 'styled-components';
+import React from 'react'
 
 
 

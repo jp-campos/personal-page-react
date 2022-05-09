@@ -7,6 +7,7 @@ import { Row } from "../styled_foundations/layout"
 import { AddBtn } from "../styled_foundations/buttons";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
+import React from 'react'
 
 const searchBarHeight = '46px'
 

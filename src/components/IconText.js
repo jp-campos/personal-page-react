@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Row } from "../styled_foundations/layout";
 import Icon from "./Icon";
+import React from 'react'
 
 
 const StyledText = styled.span`

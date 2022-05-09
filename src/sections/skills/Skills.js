@@ -12,6 +12,7 @@ import SearchBar from "../../components/SearchBar";
 import Icon from "../../components/Icon";
 import { TechSkills } from "./TechSkills";
 import { SoftSkills } from "./SoftSkills";
+import React from "react"
 
 
 const SearchBarLabel = styled(H2)`

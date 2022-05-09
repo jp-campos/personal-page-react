@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ExpandableCard from "../../components/ExpandableCard";
+import React from 'react'
 
 
 import {  RowCenter } from "../../styled_foundations/layout";

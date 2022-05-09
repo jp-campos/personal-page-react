@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { H3 } from "../styled_foundations/text";
 import { useState } from "react";
 import { device } from "../utility/display";
+import React from 'react'
 
 
 const StyledCard = styled(Column)`

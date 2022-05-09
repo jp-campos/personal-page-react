@@ -4,6 +4,7 @@ import colors from "../styled_foundations/colors"
 import { Column, RowSpaceAround } from "../styled_foundations/layout"
 import { H3 } from "../styled_foundations/text"
 import Icon from "./Icon"
+import React from 'react'
 
 
 

@@ -6,6 +6,7 @@ import { Row } from "../styled_foundations/layout";
 import { WhiteSpaceSm, WhiteSpaceXs } from "../styled_foundations/spacing";
 import { H2,  Label } from "../styled_foundations/text";
 import {ReactComponent as Icon} from "../assets/svgs/certification.svg"
+import React from "react"
 
 const links = {
     goStarted: "https://www.coursera.org/account/accomplishments/certificate/QZU6TMANFQZG",
@@ -30,8 +31,6 @@ const Certifications = ({ innerRef,sectionKey }) => {
         <H2>Go courses</H2>
         <WhiteSpaceSm/>
         <IconsCard key="go" assets={['go', 'coursera']}>
-            
-
         <Certification
                 size="22px"
                 href={links.goStarted}
@@ -61,9 +60,6 @@ const Certifications = ({ innerRef,sectionKey }) => {
         <H2>AWS courses and certifications</H2>
         <WhiteSpaceSm/>
         <IconsCard key="aws" assets={['aws_certified_dev', 'cloudguru', 'coursera']}>
-            
-        
-
             <Certification
                 size="22px"
                 href={links.awsDevAssociate}
@@ -102,7 +98,6 @@ const Certification = (props) => {
     return <>
         <IconLink size={props.size} href={props.href}>{props.children}</IconLink>
         <WhiteSpaceSm />
-
         <Field marginLeft={props.size}>
             <Label>Date:</Label>
             <WhiteSpaceXs />
@@ -116,7 +111,6 @@ const Certification = (props) => {
         </Field>
     </>
 }
-
 
 
 export default Certifications; 

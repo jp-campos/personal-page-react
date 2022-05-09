@@ -9,6 +9,8 @@ import useWindowDimensions from "./../../hooks/use_window_dimensions"
 import { device, sizeNumbers } from "./../../utility/display"
 import { ReactComponent as MenuIcon } from "./../../assets/svgs/hamburguer.svg"
 import { toast } from "react-toastify"
+import React from 'react'
+
 const LanguagesContainer = styled(Row)`
     position: absolute;
     top: 10px;

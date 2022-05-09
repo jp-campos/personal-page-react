@@ -5,7 +5,7 @@ import goStatic from "../../assets/pngs/go_static.png"
 import personalPageFrontStatic from "../../assets/pngs/personal_page_front_static.png"
 import ciclapStatic from "../../assets/pngs/ciclap_static.png"
 import faritaStatic from "../../assets/pngs/farita_static.png"
-
+import React from 'react';
 import { useEffect } from "react";
 
 //const ciclapAnimate = "https://s1.gifyu.com/images/Grabacion-de-pantalla-2022-03-31-a-las-4.40.30-p.m-1.gif"

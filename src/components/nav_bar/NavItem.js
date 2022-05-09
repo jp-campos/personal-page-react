@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import colors from "../../styled_foundations/colors"
+import React from 'react'
 
 
 const StyledNavItem = styled.li`

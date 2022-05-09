@@ -7,6 +7,7 @@ import {  TextJustify } from "../../styled_foundations/text";
 import colors from "../../styled_foundations/colors";
 
 import { device } from "../../utility/display";
+import React from 'react'
 
 
 

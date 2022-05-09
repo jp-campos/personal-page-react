@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react"
 import { CurrSectionContext } from "../context/curr_section_context"
 import useWindowDimensions from "../hooks/use_window_dimensions"
 import { sizeNumbers } from "../utility/display"
+import React from 'react'
 
 const StyledSection = styled.div`
 margin-top: 100px;

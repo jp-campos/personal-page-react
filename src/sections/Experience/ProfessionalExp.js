@@ -4,6 +4,7 @@ import { IconsCard } from "../../components/Card";
 import DropDown from "../../components/Dropdown";
 import Tag from "../../components/Tag";
 import styled from "styled-components";
+import React from 'react'
 
 
 const DateText = styled.span`
@@ -47,8 +48,8 @@ export default function ProfessionalExp(){
             <Tag color={colors.frontEndTagBg}>Front-End</Tag>
             <Tag color={colors.backEndTagBg}>Back-End</Tag>
             <TextJustify>
-                 <p>I worked with Colombia's biggest bank on their financial inclusion product "Bancolombia a la mano". 
-                During this time I also contributed in a digital transformation project called "Galatea". This project's main purpose 
+                 <p>I worked with Colombia&apos;s biggest bank on their financial inclusion product &quot;Bancolombia a la mano&quot;. 
+                During this time I also contributed in a digital transformation project called &quot;Galatea&quot;. This project&apos;s main purpose 
                 was to increase code reusability between financial products and promote good programming/architectural practices. 
                 </p>
                 <p>

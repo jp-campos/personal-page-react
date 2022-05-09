@@ -4,6 +4,7 @@ import { Row } from "../styled_foundations/layout";
 import { WhiteSpaceMd, WhiteSpaceSm } from "../styled_foundations/spacing";
 import colors from './../styled_foundations/colors'
 import {ReactComponent as DownArrow} from "../assets/svgs/down-arrow.svg"
+import React from 'react'
 
 const Title = styled.p`
     color: ${colors.clickable};

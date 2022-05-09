@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import React from 'react'
+
 const StyledIcon = styled.img`
 
     ${props => props.lightGrey ? `filter: invert(75%) sepia(0%) saturate(4%) hue-rotate(45deg) brightness(91%) contrast(93%);`: ''};

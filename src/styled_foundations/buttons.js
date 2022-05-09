@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {ReactComponent as Plus} from "../assets/svgs/plus.svg"
 import { useState } from "react";
 import colors from "./colors";
+import React from 'react'
 
 export const PrimaryBtn = styled.button`
     background-color: ${colors.active};

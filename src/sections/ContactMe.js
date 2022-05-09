@@ -9,6 +9,7 @@ import { useState } from "react";
 import { Row } from "../styled_foundations/layout";
 import httpClient from "../infrastructure/httpClient";
 import { toast } from "react-toastify";
+import React from 'react'
 
 const SectionLabel = styled(H2)`
     color: ${colors.active};

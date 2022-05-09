@@ -4,7 +4,7 @@ import { ReactComponent as LinkedinIcon } from "../assets/svgs/linkedin.svg"
 import { ReactComponent as GithubIcon } from "../assets/svgs/github.svg"
 import { ReactComponent as MailIcon } from "../assets/svgs/mail.svg"
 import { WhiteSpaceMd } from "../styled_foundations/spacing";
-
+import React from 'react'
 
 const StyledFooter = styled.footer`
     width: 100vw;

@@ -12,6 +12,7 @@ import Footer from './sections/Footer.js';
 import { WhiteSpaceLg } from './styled_foundations/spacing.js';
 import { device } from './utility/display.js';
 import { ToastContainer } from 'react-toastify';
+import React from "react"
 
 const Body = styled.div`
  padding-left: 50px; 
@@ -22,7 +23,6 @@ const Body = styled.div`
   }
    
 `
-//TODO: Hacer media query
 const HeroWhiteSpace = styled.div`
     height: 100vh;
     @media ${device.mobileL}{
