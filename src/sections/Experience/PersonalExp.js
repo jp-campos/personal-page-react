@@ -74,12 +74,12 @@ export default function PersonalExp(){
     " />
      <SquareCard topStatic={toImg(ciclapStatic)} topAnimated={toImg(ciclapAnimate)} link={projs.ciclap.link} header="Ciclap" 
     body="App developed in Flutter. It was inteded to be a Google Maps for bikes. Offered directions that maximixed 
-    the travel time in bikelines and gave indications of the elevations of the trip. Bloc Pattern and firebase
-    where key in the state management of the state of the app" />
+    the travel time on bikelanes and gave indications of the elevations of the trip. Bloc Pattern and firebase
+    where key in the state management of the app" />
      <SquareCard topStatic={toImg(faritaStatic)} topAnimated={toImg(faritaAnimate)} link={projs.farita.link} header="Farita " 
-    body="Project done in web development course in which we wanted to give an alternative to hangng out with friends during
+    body="Project done in web development course in which we wanted to give an alternative to hanging out with friends during
     the pandemic. ReactJs was used for the front and NodeJs for the backend. Technologies such as NoSQL and 
-    websockets were key for the development of this solution
+    websockets were employed.
     " />
     </Container>
    
