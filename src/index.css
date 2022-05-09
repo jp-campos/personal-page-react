@@ -25,6 +25,11 @@ body {
     monospace;
   font-size:clamp(2.0rem, 4.5vw, 3.0rem);
 }
+.cursor {
+
+  font-size:clamp(1.8rem, 4.3vw, 2.8rem);
+  animation: Typewriter-cursor 1s infinite;
+}
 
 .about-container{
   width: 100%;

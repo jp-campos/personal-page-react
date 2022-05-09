@@ -60,7 +60,8 @@ export default function CommandLine({ scrollPosition, minimizedCallback, scrollT
                         strings: ['Software Engineer', 'Front End Developer', 'Back End Developer'],
                         autoStart: true,
                         loop: true,
-                        wrapperClassName: "code"
+                        wrapperClassName: 'code',
+                        cursorClassName: 'cursor'
                       }}
                 />
             </ColumnCenter>
